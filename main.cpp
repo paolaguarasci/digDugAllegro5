@@ -24,7 +24,8 @@ int main(int argc, char **argv) {
   while (true) {
     ALLEGRO_EVENT ev;
     al_wait_for_event(event_queue, &ev);
-    if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
+    if (ev.type == ALLEGRO_EVENT_KEY_DOWN &&
+        ev.keyboard.keycode == ALLEGRO_KEY_ESCAPE) {
       break;
     }
 
