@@ -1,11 +1,12 @@
 #pragma once
-#include <allegro5/allegro.h>
-#include <iostream>
 #include "_const.cpp"
 #include "input.cpp"
+#include <allegro5/allegro.h>
+#include <allegro5/allegro_tiled.h>
+#include <iostream>
 
 class App {
- private:
+private:
   bool key[4] = {false, false, false, false};
   bool doexit = false;
   bool redraw = true;
@@ -14,7 +15,7 @@ class App {
   ALLEGRO_EVENT_QUEUE *event_queue = NULL;
   ALLEGRO_TIMER *timer = NULL;
 
- public:
+public:
   App();
   ~App();
 
@@ -57,43 +58,43 @@ int App::Run(int argc, char *argv[]) {
       break;
     } else if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
       switch (ev.keyboard.keycode) {
-        case ALLEGRO_KEY_UP:
-          key[KEY_UP] = true;
-          break;
+      case ALLEGRO_KEY_UP:
+        key[KEY_UP] = true;
+        break;
 
-        case ALLEGRO_KEY_DOWN:
-          key[KEY_DOWN] = true;
-          break;
+      case ALLEGRO_KEY_DOWN:
+        key[KEY_DOWN] = true;
+        break;
 
-        case ALLEGRO_KEY_LEFT:
-          key[KEY_LEFT] = true;
-          break;
+      case ALLEGRO_KEY_LEFT:
+        key[KEY_LEFT] = true;
+        break;
 
-        case ALLEGRO_KEY_RIGHT:
-          key[KEY_RIGHT] = true;
-          break;
+      case ALLEGRO_KEY_RIGHT:
+        key[KEY_RIGHT] = true;
+        break;
       }
     } else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
       switch (ev.keyboard.keycode) {
-        case ALLEGRO_KEY_UP:
-          key[KEY_UP] = false;
-          break;
+      case ALLEGRO_KEY_UP:
+        key[KEY_UP] = false;
+        break;
 
-        case ALLEGRO_KEY_DOWN:
-          key[KEY_DOWN] = false;
-          break;
+      case ALLEGRO_KEY_DOWN:
+        key[KEY_DOWN] = false;
+        break;
 
-        case ALLEGRO_KEY_LEFT:
-          key[KEY_LEFT] = false;
-          break;
+      case ALLEGRO_KEY_LEFT:
+        key[KEY_LEFT] = false;
+        break;
 
-        case ALLEGRO_KEY_RIGHT:
-          key[KEY_RIGHT] = false;
-          break;
+      case ALLEGRO_KEY_RIGHT:
+        key[KEY_RIGHT] = false;
+        break;
 
-        case ALLEGRO_KEY_ESCAPE:
-          doexit = true;
-          break;
+      case ALLEGRO_KEY_ESCAPE:
+        doexit = true;
+        break;
       }
     }
     if (redraw && al_is_event_queue_empty(event_queue)) {
