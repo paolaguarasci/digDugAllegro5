@@ -2,6 +2,7 @@
 #include <allegro5/allegro.h>
 #include <iostream>
 #include "_const.cpp"
+#include "input.cpp"
 
 class App {
  private:
