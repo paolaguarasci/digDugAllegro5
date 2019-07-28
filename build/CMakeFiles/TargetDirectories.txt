@@ -1,0 +1,3 @@
+/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles/rebuild_cache.dir
+/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles/edit_cache.dir
+/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles/ask.dir

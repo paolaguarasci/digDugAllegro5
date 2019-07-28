@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="75" height="40" tilewidth="16" tileheight="16">
  <tileset firstgid="1" name="Bricks" tilewidth="16" tileheight="16">
-  <image source="nes.png" width="64" height="32"/>
+  <image source="../tilesets/bricks.png" width="64" height="32"/>
   <tile id="0">
    <properties>
     <property name="collide" value="true"/>
