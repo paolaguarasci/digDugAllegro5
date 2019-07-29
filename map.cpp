@@ -13,5 +13,5 @@ Map::~Map() {
 }
 void Map::draw() {
   al_draw_map_region(map, map_x, map_y, screen_width, screen_height, 0, 0, 0);
-  al_draw_map_region(map, 0, 0, 640, 480, 0, 0, 0);
+  // al_draw_map_region(map, 0, 0, 640, 480, 0, 0, 0);
 }

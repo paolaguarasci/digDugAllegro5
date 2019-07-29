@@ -3,6 +3,10 @@
 #include "map.h"
 
 App::App() {
+  pos_x = 0;
+  pos_y = 0;
+  azione = 1;
+  posizione = 1;
   al_init();
   display = al_create_display(SCREEN_W, SCREEN_H);
   al_init_image_addon();
@@ -13,6 +17,7 @@ App::App() {
   al_register_event_source(event_queue, al_get_timer_event_source(timer));
   al_start_timer(timer);
   mappa = new Map();
+  player = new Player();
 }
 
 int App::Run(int argc, char *argv[]) {
@@ -22,20 +27,27 @@ int App::Run(int argc, char *argv[]) {
     al_wait_for_event(event_queue, &ev);
     if (ev.type == ALLEGRO_EVENT_TIMER) {
       if (key[KEY_UP]) {
-        red += 10;
+        pos_y -= 3;
+        azione = 0;
+        posizione = (posizione <= 0 ? 2 : posizione - 1);
       }
       if (key[KEY_DOWN]) {
-        green += 10;
+        azione = 2;
+        pos_y += 3;
+        posizione = (posizione >= 2 ? 0 : posizione + 1);
       }
       if (key[KEY_LEFT]) {
-        blue += 10;
+        pos_x -= 3;
+        azione = 3;
+        posizione = (posizione <= 0 ? 2 : posizione - 1);
       }
       if (key[KEY_RIGHT]) {
-        red = 0;
-        green = 0;
-        blue = 0;
+        azione = 1;
+        pos_x += 3;
+        posizione = (posizione >= 2 ? 0 : posizione + 1);
       }
       draw = true;
+      player->update(pos_x, pos_y, azione, posizione);
     } else if (ev.type == ALLEGRO_EVENT_KEY_DOWN &&
                ev.keyboard.keycode == ALLEGRO_KEY_ESCAPE) {
       break;
@@ -58,6 +70,7 @@ int App::Run(int argc, char *argv[]) {
         break;
       }
     } else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
+      posizione = 1;
       switch (ev.keyboard.keycode) {
       case ALLEGRO_KEY_UP:
         key[KEY_UP] = false;
@@ -82,8 +95,8 @@ int App::Run(int argc, char *argv[]) {
     }
     if (draw && al_is_event_queue_empty(event_queue)) {
       draw = false;
-      al_clear_to_color(al_map_rgb(red, green, blue));
       mappa->draw();
+      player->draw();
       al_flip_display();
     }
   }
