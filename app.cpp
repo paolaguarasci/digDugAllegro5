@@ -3,8 +3,8 @@
 #include "map.h"
 
 App::App() {
-  pos_x = 0;
-  pos_y = 0;
+  pos_x = 32 * 2;
+  pos_y = SCREEN_H - (32 * 3);
   azione = 1;
   posizione = 1;
   al_init();
@@ -27,23 +27,27 @@ int App::Run(int argc, char *argv[]) {
     al_wait_for_event(event_queue, &ev);
     if (ev.type == ALLEGRO_EVENT_TIMER) {
       if (key[KEY_UP]) {
-        pos_y -= 3;
+        pos_y = (pos_y <= 0 ? SCREEN_H - player->getDimY()
+                            : pos_y - player->getVelY());
         azione = 0;
         posizione = (posizione <= 0 ? 2 : posizione - 1);
       }
       if (key[KEY_DOWN]) {
         azione = 2;
-        pos_y += 3;
+        pos_y += player->getVelY();
         posizione = (posizione >= 2 ? 0 : posizione + 1);
       }
       if (key[KEY_LEFT]) {
-        pos_x -= 3;
+        pos_x = (pos_x <= player->getDimX() ? SCREEN_W - player->getDimX()
+                                            : pos_x - player->getVelX());
         azione = 3;
         posizione = (posizione <= 0 ? 2 : posizione - 1);
       }
       if (key[KEY_RIGHT]) {
         azione = 1;
-        pos_x += 3;
+        pos_x = (pos_x >= (SCREEN_W - player->getDimX())
+                     ? 0
+                     : pos_x + player->getVelX());
         posizione = (posizione >= 2 ? 0 : posizione + 1);
       }
       draw = true;

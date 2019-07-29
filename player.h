@@ -25,6 +25,10 @@ public:
   ~Player();
   void draw();
   void update(int _pos_x, int _pos_y, int _azione, int _posizione);
+  float getVelX();
+  float getVelY();
+  int getDimX();
+  int getDimY();
 };
 
 #endif // PLAYER_H

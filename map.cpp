@@ -8,10 +8,7 @@ Map::Map() {
   map_total_width = al_get_map_width(map) * al_get_tile_width(map);
   map_total_height = al_get_map_height(map) * al_get_tile_height(map);
 }
-Map::~Map() {
-  // al_free_map(map);
-}
+Map::~Map() { al_free_map(map); }
 void Map::draw() {
   al_draw_map_region(map, map_x, map_y, screen_width, screen_height, 0, 0, 0);
-  // al_draw_map_region(map, 0, 0, 640, 480, 0, 0, 0);
 }

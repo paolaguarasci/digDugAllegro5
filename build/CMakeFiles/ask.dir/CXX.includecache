@@ -30,20 +30,6 @@ allegro5/allegro_tiled.h
 iostream
 -
 
-/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/main.cpp
-app.h
-/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/app.h
-
-/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/map.cpp
-map.h
-/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/map.h
-_const.h
-/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/_const.h
-allegro5/allegro_image.h
--
-allegro5/allegro_tiled.h
--
-
 /Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/map.h
 allegro5/allegro.h
 -
@@ -53,10 +39,6 @@ allegro5/allegro_tiled.h
 -
 iostream
 -
-
-/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/player.cpp
-player.h
-/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/player.h
 
 /Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/player.h
 _const.h
