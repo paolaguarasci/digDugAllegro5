@@ -74,12 +74,12 @@ preinstall:
 CMakeFiles/ask.dir/all:
 	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/depend
 	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles" --progress-num=1,2,3,4,5 "Built target ask"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles" --progress-num=1,2,3,4,5,6 "Built target ask"
 .PHONY : CMakeFiles/ask.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ask.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ask.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles" 0
 .PHONY : CMakeFiles/ask.dir/rule

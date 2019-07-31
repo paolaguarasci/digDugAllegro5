@@ -231,6 +231,33 @@ player.cpp.s:
 	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/player.cpp.s
 .PHONY : player.cpp.s
 
+screen.o: screen.cpp.o
+
+.PHONY : screen.o
+
+# target to build an object file
+screen.cpp.o:
+	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/screen.cpp.o
+.PHONY : screen.cpp.o
+
+screen.i: screen.cpp.i
+
+.PHONY : screen.i
+
+# target to preprocess a source file
+screen.cpp.i:
+	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/screen.cpp.i
+.PHONY : screen.cpp.i
+
+screen.s: screen.cpp.s
+
+.PHONY : screen.s
+
+# target to generate assembly for a file
+screen.cpp.s:
+	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/screen.cpp.s
+.PHONY : screen.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -252,6 +279,9 @@ help:
 	@echo "... player.o"
 	@echo "... player.i"
 	@echo "... player.s"
+	@echo "... screen.o"
+	@echo "... screen.i"
+	@echo "... screen.s"
 .PHONY : help
 
 

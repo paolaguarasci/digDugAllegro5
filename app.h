@@ -1,6 +1,7 @@
 #ifndef APP_H
 #define APP_H
 
+#include "Screen.h"
 #include "_const.h"
 #include "map.h"
 #include "player.h"
@@ -18,11 +19,11 @@ private:
   int pos_y;
   int azione;
   int posizione;
-  ALLEGRO_DISPLAY *display = NULL;
   ALLEGRO_EVENT_QUEUE *event_queue = NULL;
   ALLEGRO_TIMER *timer = NULL;
   Map *mappa = NULL;
   Player *player = NULL;
+  Screen *screen = NULL;
 
 public:
   App();

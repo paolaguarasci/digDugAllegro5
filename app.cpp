@@ -8,9 +8,8 @@ App::App() {
   azione = 1;
   posizione = 1;
   al_init();
-  display = al_create_display(SCREEN_W, SCREEN_H);
-  al_init_image_addon();
   al_install_keyboard();
+  screen = new Screen();
   event_queue = al_create_event_queue();
   timer = al_create_timer(1 / FPS);
   al_register_event_source(event_queue, al_get_keyboard_event_source());
@@ -101,7 +100,7 @@ int App::Run(int argc, char *argv[]) {
       draw = false;
       mappa->draw();
       player->draw();
-      al_flip_display();
+      screen->draw();
     }
   }
   return 0;
@@ -109,8 +108,9 @@ int App::Run(int argc, char *argv[]) {
 
 App::~App() {
   delete mappa;
+  delete player;
+  delete screen;
   al_uninstall_keyboard();
   al_destroy_timer(timer);
   al_destroy_event_queue(event_queue);
-  al_destroy_display(display);
 }
