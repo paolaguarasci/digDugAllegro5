@@ -24,6 +24,7 @@ public:
   int getDimX();
   int getDimY();
   int getPosX();
+  int getPosY();
   int getAzione();
   int getPosizione();
 };

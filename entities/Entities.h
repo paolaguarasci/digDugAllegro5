@@ -27,6 +27,7 @@ public:
   virtual int getDimX() = 0;
   virtual int getDimY() = 0;
   virtual int getPosX() = 0;
+  virtual int getPosY() = 0;
   virtual int getAzione() = 0;
   virtual int getPosizione() = 0;
 };

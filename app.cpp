@@ -101,9 +101,8 @@ int App::Run(int argc, char *argv[]) {
         break;
       }
     }
-
     enemy->update();
-
+    player->isColl(enemy);
     if (draw && al_is_event_queue_empty(event_queue)) {
       draw = false;
       for (Object *o : obj)

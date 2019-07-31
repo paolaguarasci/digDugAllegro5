@@ -29,7 +29,30 @@ void Player::update(int _pos_x, int _pos_y, int _azione, int _posizione) {
 }
 int Player::getDimX() { return dim_x; }
 int Player::getDimY() { return dim_y; }
-
 int Player::getPosX() { return pos_x; }
+int Player::getPosY() { return pos_y; }
 int Player::getAzione() { return azione; }
 int Player::getPosizione() { return posizione; }
+bool Player::isColl(Entities *e) {
+
+  int b1_x = pos_x;
+  int b1_y = pos_y;
+  int b1_h = dim_y;
+  int b1_w = dim_x;
+  int b2_x = e->getPosX();
+  int b2_y = e->getPosY();
+  int b2_h = e->getDimY();
+  int b2_w = e->getDimX();
+
+  if ((b1_x > b2_x + b2_w - 1) || // is b1 on the right side of b2?
+      (b1_y > b2_y + b2_h - 1) || // is b1 under b2?
+      (b2_x > b1_x + b1_w - 1) || // is b2 on the right side of b1?
+      (b2_y > b1_y + b1_h - 1))   // is b2 under b1?
+  {
+    // no collision
+    return false;
+  }
+  std::cout << "Collisione!" << std::endl;
+  // collision
+  return true;
+}

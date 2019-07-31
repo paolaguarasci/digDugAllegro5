@@ -40,5 +40,6 @@ void Enemy::update() {
 int Enemy::getDimX() { return dim_x; }
 int Enemy::getDimY() { return dim_y; }
 int Enemy::getPosX() { return pos_x; }
+int Enemy::getPosY() { return pos_y; }
 int Enemy::getAzione() { return azione; }
 int Enemy::getPosizione() { return posizione; }
