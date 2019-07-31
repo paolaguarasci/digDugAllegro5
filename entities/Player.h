@@ -1,9 +1,9 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "Object.h"
-#include "_const.h"
-#include "map.h"
+#include "../Map.h"
+#include "../Object.h"
+#include "../const.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_tiled.h>
 #include <iostream>

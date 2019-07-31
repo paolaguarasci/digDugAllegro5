@@ -1,4 +1,4 @@
-#include "app.h"
+#include "App.h"
 using namespace std;
 int main(int argc, char *argv[]) {
   App *app = new App();

@@ -1,7 +1,7 @@
-#include "app.h"
+#include "App.h"
+#include "Map.h"
 #include "Object.h"
-#include "_const.h"
-#include "map.h"
+#include "const.h"
 
 App::App() {
   pos_x = 32 * 2;

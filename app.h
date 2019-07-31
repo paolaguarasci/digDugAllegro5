@@ -1,10 +1,10 @@
 #ifndef APP_H
 #define APP_H
 
-#include "Screen.h"
-#include "_const.h"
-#include "map.h"
-#include "player.h"
+#include "Map.h"
+#include "const.h"
+#include "entities/Player.h"
+#include "screen/Screen.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_tiled.h>
 #include <iostream>

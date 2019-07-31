@@ -1,6 +1,6 @@
 #include "Screen.h"
-#include "Object.h"
-#include "_const.h"
+#include "../Object.h"
+#include "../const.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 

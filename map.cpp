@@ -1,6 +1,6 @@
-#include "map.h"
+#include "Map.h"
 #include "Object.h"
-#include "_const.h"
+#include "const.h"
 
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_tiled.h>
