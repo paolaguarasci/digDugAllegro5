@@ -5,19 +5,23 @@
 #include <string>
 
 class Entities {
-private:
-  float pos_x = 0;
-  float pos_y = 0;
-  int dim_x = 0;
-  int dim_y = 0;
-  std::string path_img = "";
-  // ALLEGRO_BITMAP *bitmap = NULL;
+protected:
+  ALLEGRO_BITMAP *bitmap;
+  float pos_x;
+  float pos_y;
+  float vel_x;
+  float vel_y;
+  float acc;
+  int dim_x;
+  int dim_y;
+  int azione;
+  int posizione;
 
 public:
   Entities();
-  ~Entities();
-  void update();
-  void draw();
+  virtual ~Entities();
+  virtual void update(int _pos_x, int _pos_y, int _azione, int _posizione) = 0;
+  virtual void draw() = 0;
 };
 
 #endif // ENTITIES_H

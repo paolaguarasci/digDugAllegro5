@@ -26,6 +26,7 @@ private:
   Player *player = NULL;
   Screen *screen = NULL;
   std::list<Object *> obj;
+  std::list<Entities *> ent;
 
 public:
   App();

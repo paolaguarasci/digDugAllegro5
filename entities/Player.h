@@ -2,24 +2,13 @@
 #define PLAYER_H
 
 #include "../Map.h"
-#include "../Object.h"
 #include "../const.h"
+#include "Entities.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_tiled.h>
 #include <iostream>
 
-class Player : public Object {
-private:
-  ALLEGRO_BITMAP *bitmap;
-  float pos_x;
-  float pos_y;
-  float vel_x;
-  float vel_y;
-  float acc;
-  int dim_x;
-  int dim_y;
-  int azione;
-  int posizione;
+class Player : public Entities {
 
 public:
   Player();

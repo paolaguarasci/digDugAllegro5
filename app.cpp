@@ -19,7 +19,7 @@ App::App() {
   mappa = new Map();
   player = new Player();
   obj.push_back(mappa);
-  obj.push_back(player);
+  ent.push_back(player);
 }
 
 int App::Run(int argc, char *argv[]) {
@@ -103,6 +103,8 @@ int App::Run(int argc, char *argv[]) {
       draw = false;
       for (Object *o : obj)
         o->draw();
+      for (Entities *e : ent)
+        e->draw();
       screen->draw();
     }
   }
@@ -112,6 +114,8 @@ int App::Run(int argc, char *argv[]) {
 App::~App() {
   for (Object *o : obj)
     delete o;
+  for (Entities *e : ent)
+    delete e;
   al_uninstall_keyboard();
   al_destroy_timer(timer);
   al_destroy_event_queue(event_queue);
