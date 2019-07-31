@@ -8,12 +8,17 @@
 #include <iostream>
 
 class Enemy : public Entities {
+private:
+  bool isLive;
+  int inizial_pos_x;
+  int passi;
+  int direzione;
 
 public:
   Enemy();
   ~Enemy();
   void draw();
-  void update(int _pos_x, int _pos_y, int _azione, int _posizione);
+  void update();
   float getVelX();
   float getVelY();
   int getDimX();

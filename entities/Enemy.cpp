@@ -1,15 +1,19 @@
 #include "Enemy.h"
 Enemy::Enemy() {
   bitmap = al_load_bitmap("../assets/img/enemy.png");
-  pos_x = 100;
-  pos_y = SCREEN_H - 100;
-  vel_x = 10;
+  pos_x = 300;
+  inizial_pos_x = 300;
+  pos_y = SCREEN_H - 75;
+  vel_x = 2;
   vel_y = 3;
   acc = 0;
   dim_x = 24;
   dim_y = 33;
   azione = 1;
   posizione = 1;
+  isLive = true;
+  passi = 75;
+  direzione = 1;
 }
 Enemy::~Enemy() { al_destroy_bitmap(bitmap); }
 void Enemy::draw() {
@@ -20,11 +24,18 @@ void Enemy::draw() {
 
 float Enemy::getVelX() { return vel_x; }
 float Enemy::getVelY() { return vel_y; }
-void Enemy::update(int _pos_x, int _pos_y, int _azione, int _posizione) {
-  pos_x = _pos_x;
-  pos_y = _pos_y;
-  posizione = _posizione;
-  azione = _azione;
+void Enemy::update() {
+  if (pos_x >= (inizial_pos_x + passi)) {
+    direzione = -1;
+    azione = 3;
+  } else if (pos_x <= (inizial_pos_x - passi)) {
+    direzione = 1;
+    azione = 1;
+  }
+  pos_x += (direzione * vel_x);
+  posizione++;
+  if (posizione > 2)
+    posizione = 0;
 }
 int Enemy::getDimX() { return dim_x; }
 int Enemy::getDimY() { return dim_y; }

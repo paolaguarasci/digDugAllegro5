@@ -102,8 +102,7 @@ int App::Run(int argc, char *argv[]) {
       }
     }
 
-    enemy->update(enemy->getPosX() + 2, 0, enemy->getAzione(),
-                  enemy->getPosizione());
+    enemy->update();
 
     if (draw && al_is_event_queue_empty(event_queue)) {
       draw = false;
