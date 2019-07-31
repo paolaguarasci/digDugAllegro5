@@ -43,3 +43,8 @@ int Enemy::getPosX() { return pos_x; }
 int Enemy::getPosY() { return pos_y; }
 int Enemy::getAzione() { return azione; }
 int Enemy::getPosizione() { return posizione; }
+void Enemy::setLive(bool live) {
+  std::cout << "Set live\n";
+  isLive = live;
+}
+bool Enemy::getLive() { return isLive; }

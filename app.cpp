@@ -103,6 +103,10 @@ int App::Run(int argc, char *argv[]) {
     }
     enemy->update();
     player->isColl(enemy);
+    if (!(enemy->getLive())) {
+      // delete enemy;
+      ent.remove(enemy);
+    }
     if (draw && al_is_event_queue_empty(event_queue)) {
       draw = false;
       for (Object *o : obj)

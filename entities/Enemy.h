@@ -9,7 +9,7 @@
 
 class Enemy : public Entities {
 private:
-  bool isLive;
+  bool isLive = true;
   int inizial_pos_x;
   int passi;
   int direzione;
@@ -27,6 +27,8 @@ public:
   int getPosY();
   int getAzione();
   int getPosizione();
+  void setLive(bool);
+  bool getLive();
 };
 
 #endif // ENEMY_H

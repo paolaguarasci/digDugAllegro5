@@ -30,6 +30,7 @@ public:
   virtual int getPosY() = 0;
   virtual int getAzione() = 0;
   virtual int getPosizione() = 0;
+  virtual void setLive(bool){};
 };
 
 #endif // ENTITIES_H

@@ -53,6 +53,7 @@ bool Player::isColl(Entities *e) {
     return false;
   }
   std::cout << "Collisione!" << std::endl;
+  e->setLive(false);
   // collision
   return true;
 }
