@@ -18,8 +18,10 @@ App::App() {
   al_start_timer(timer);
   mappa = new Map();
   player = new Player();
+  enemy = new Enemy();
   obj.push_back(mappa);
   ent.push_back(player);
+  ent.push_back(enemy);
 }
 
 int App::Run(int argc, char *argv[]) {

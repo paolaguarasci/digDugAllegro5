@@ -3,6 +3,7 @@
 
 #include "Map.h"
 #include "const.h"
+#include "entities/Enemy.h"
 #include "entities/Player.h"
 #include "screen/Screen.h"
 #include <allegro5/allegro.h>
@@ -16,14 +17,15 @@ private:
   bool key[4] = {false, false, false, false};
   bool doexit = false;
   bool draw = true;
-  int pos_x;
-  int pos_y;
-  int azione;
-  int posizione;
+  int pos_x = 0;
+  int pos_y = 0;
+  int azione = 0;
+  int posizione = 0;
   ALLEGRO_EVENT_QUEUE *event_queue = NULL;
   ALLEGRO_TIMER *timer = NULL;
   Map *mappa = NULL;
   Player *player = NULL;
+  Enemy *enemy = NULL;
   Screen *screen = NULL;
   std::list<Object *> obj;
   std::list<Entities *> ent;

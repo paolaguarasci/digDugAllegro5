@@ -52,7 +52,15 @@ cmake_minimum_required(VERSION 3.5)
 project(ask)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
-set(SOURCE_FILES main.cpp App.cpp Map.cpp entities/Entities.cpp entities/Player.cpp screen/Screen.cpp Object.cpp)
+set(SOURCE_FILES 
+  main.cpp 
+  App.cpp 
+  Map.cpp 
+  entities/Entities.cpp
+  entities/Enemy.cpp
+  entities/Player.cpp 
+  screen/Screen.cpp 
+  Object.cpp)
 add_executable(digdug ${SOURCE_FILES})
 
 IF(UNIX)
