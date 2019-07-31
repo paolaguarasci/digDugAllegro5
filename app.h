@@ -8,6 +8,7 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_tiled.h>
 #include <iostream>
+#include <list>
 enum KEY { KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT };
 
 class App {
@@ -24,6 +25,7 @@ private:
   Map *mappa = NULL;
   Player *player = NULL;
   Screen *screen = NULL;
+  std::list<Object *> obj;
 
 public:
   App();

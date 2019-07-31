@@ -6,7 +6,13 @@
 
 #IncludeRegexTransform: 
 
+/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Object.h
+iostream
+-
+
 /Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Screen.h
+Object.h
+/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Object.h
 allegro5/allegro.h
 -
 
@@ -15,6 +21,8 @@ allegro5/allegro.h
 /Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/app.cpp
 app.h
 /Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/app.h
+Object.h
+/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Object.h
 _const.h
 /Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/_const.h
 map.h
@@ -35,12 +43,12 @@ allegro5/allegro_tiled.h
 -
 iostream
 -
-
-/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/main.cpp
-app.h
-/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/app.h
+list
+-
 
 /Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/map.h
+Object.h
+/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Object.h
 allegro5/allegro.h
 -
 allegro5/allegro_image.h
@@ -51,6 +59,8 @@ iostream
 -
 
 /Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/player.h
+Object.h
+/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Object.h
 _const.h
 /Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/_const.h
 map.h
@@ -60,16 +70,6 @@ allegro5/allegro.h
 allegro5/allegro_tiled.h
 -
 iostream
--
-
-/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/screen.cpp
-Screen.h
-/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Screen.h
-_const.h
-/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/_const.h
-allegro5/allegro.h
--
-allegro5/allegro_image.h
 -
 
 /usr/local/Cellar/allegro/5.2.5.0/include/allegro5/alcompat.h

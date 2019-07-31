@@ -1,4 +1,5 @@
 #include "app.h"
+#include "Object.h"
 #include "_const.h"
 #include "map.h"
 
@@ -17,6 +18,8 @@ App::App() {
   al_start_timer(timer);
   mappa = new Map();
   player = new Player();
+  obj.push_back(mappa);
+  obj.push_back(player);
 }
 
 int App::Run(int argc, char *argv[]) {
@@ -98,8 +101,8 @@ int App::Run(int argc, char *argv[]) {
     }
     if (draw && al_is_event_queue_empty(event_queue)) {
       draw = false;
-      mappa->draw();
-      player->draw();
+      for (Object *o : obj)
+        o->draw();
       screen->draw();
     }
   }
@@ -107,9 +110,8 @@ int App::Run(int argc, char *argv[]) {
 }
 
 App::~App() {
-  delete mappa;
-  delete player;
-  delete screen;
+  for (Object *o : obj)
+    delete o;
   al_uninstall_keyboard();
   al_destroy_timer(timer);
   al_destroy_event_queue(event_queue);

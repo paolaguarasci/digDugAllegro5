@@ -1,9 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ask.dir/Object.cpp.o"
+  "CMakeFiles/ask.dir/Screen.cpp.o"
   "CMakeFiles/ask.dir/app.cpp.o"
   "CMakeFiles/ask.dir/main.cpp.o"
   "CMakeFiles/ask.dir/map.cpp.o"
   "CMakeFiles/ask.dir/player.cpp.o"
-  "CMakeFiles/ask.dir/screen.cpp.o"
   "ask"
   "ask.pdb"
 )

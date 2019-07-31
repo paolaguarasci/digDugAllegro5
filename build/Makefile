@@ -123,6 +123,60 @@ ask/fast:
 	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/build
 .PHONY : ask/fast
 
+Object.o: Object.cpp.o
+
+.PHONY : Object.o
+
+# target to build an object file
+Object.cpp.o:
+	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/Object.cpp.o
+.PHONY : Object.cpp.o
+
+Object.i: Object.cpp.i
+
+.PHONY : Object.i
+
+# target to preprocess a source file
+Object.cpp.i:
+	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/Object.cpp.i
+.PHONY : Object.cpp.i
+
+Object.s: Object.cpp.s
+
+.PHONY : Object.s
+
+# target to generate assembly for a file
+Object.cpp.s:
+	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/Object.cpp.s
+.PHONY : Object.cpp.s
+
+Screen.o: Screen.cpp.o
+
+.PHONY : Screen.o
+
+# target to build an object file
+Screen.cpp.o:
+	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/Screen.cpp.o
+.PHONY : Screen.cpp.o
+
+Screen.i: Screen.cpp.i
+
+.PHONY : Screen.i
+
+# target to preprocess a source file
+Screen.cpp.i:
+	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/Screen.cpp.i
+.PHONY : Screen.cpp.i
+
+Screen.s: Screen.cpp.s
+
+.PHONY : Screen.s
+
+# target to generate assembly for a file
+Screen.cpp.s:
+	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/Screen.cpp.s
+.PHONY : Screen.cpp.s
+
 app.o: app.cpp.o
 
 .PHONY : app.o
@@ -231,33 +285,6 @@ player.cpp.s:
 	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/player.cpp.s
 .PHONY : player.cpp.s
 
-screen.o: screen.cpp.o
-
-.PHONY : screen.o
-
-# target to build an object file
-screen.cpp.o:
-	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/screen.cpp.o
-.PHONY : screen.cpp.o
-
-screen.i: screen.cpp.i
-
-.PHONY : screen.i
-
-# target to preprocess a source file
-screen.cpp.i:
-	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/screen.cpp.i
-.PHONY : screen.cpp.i
-
-screen.s: screen.cpp.s
-
-.PHONY : screen.s
-
-# target to generate assembly for a file
-screen.cpp.s:
-	$(MAKE) -f CMakeFiles/ask.dir/build.make CMakeFiles/ask.dir/screen.cpp.s
-.PHONY : screen.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -267,6 +294,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ask"
+	@echo "... Object.o"
+	@echo "... Object.i"
+	@echo "... Object.s"
+	@echo "... Screen.o"
+	@echo "... Screen.i"
+	@echo "... Screen.s"
 	@echo "... app.o"
 	@echo "... app.i"
 	@echo "... app.s"
@@ -279,9 +312,6 @@ help:
 	@echo "... player.o"
 	@echo "... player.i"
 	@echo "... player.s"
-	@echo "... screen.o"
-	@echo "... screen.i"
-	@echo "... screen.s"
 .PHONY : help
 
 

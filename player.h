@@ -1,13 +1,14 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "Object.h"
 #include "_const.h"
 #include "map.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_tiled.h>
 #include <iostream>
 
-class Player {
+class Player : public Object {
 private:
   ALLEGRO_BITMAP *bitmap;
   float pos_x;

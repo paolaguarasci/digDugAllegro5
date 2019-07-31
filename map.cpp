@@ -1,5 +1,7 @@
 #include "map.h"
+#include "Object.h"
 #include "_const.h"
+
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_tiled.h>
 Map::Map() {

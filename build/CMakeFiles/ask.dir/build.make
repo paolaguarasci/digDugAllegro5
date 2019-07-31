@@ -109,18 +109,31 @@ CMakeFiles/ask.dir/player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ask.dir/player.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/player.cpp" -o CMakeFiles/ask.dir/player.cpp.s
 
-CMakeFiles/ask.dir/screen.cpp.o: CMakeFiles/ask.dir/flags.make
-CMakeFiles/ask.dir/screen.cpp.o: ../screen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ask.dir/screen.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ask.dir/screen.cpp.o -c "/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/screen.cpp"
+CMakeFiles/ask.dir/Screen.cpp.o: CMakeFiles/ask.dir/flags.make
+CMakeFiles/ask.dir/Screen.cpp.o: ../Screen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ask.dir/Screen.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ask.dir/Screen.cpp.o -c "/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Screen.cpp"
 
-CMakeFiles/ask.dir/screen.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ask.dir/screen.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/screen.cpp" > CMakeFiles/ask.dir/screen.cpp.i
+CMakeFiles/ask.dir/Screen.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ask.dir/Screen.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Screen.cpp" > CMakeFiles/ask.dir/Screen.cpp.i
 
-CMakeFiles/ask.dir/screen.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ask.dir/screen.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/screen.cpp" -o CMakeFiles/ask.dir/screen.cpp.s
+CMakeFiles/ask.dir/Screen.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ask.dir/Screen.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Screen.cpp" -o CMakeFiles/ask.dir/Screen.cpp.s
+
+CMakeFiles/ask.dir/Object.cpp.o: CMakeFiles/ask.dir/flags.make
+CMakeFiles/ask.dir/Object.cpp.o: ../Object.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ask.dir/Object.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ask.dir/Object.cpp.o -c "/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Object.cpp"
+
+CMakeFiles/ask.dir/Object.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ask.dir/Object.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Object.cpp" > CMakeFiles/ask.dir/Object.cpp.i
+
+CMakeFiles/ask.dir/Object.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ask.dir/Object.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Object.cpp" -o CMakeFiles/ask.dir/Object.cpp.s
 
 # Object files for target ask
 ask_OBJECTS = \
@@ -128,7 +141,8 @@ ask_OBJECTS = \
 "CMakeFiles/ask.dir/app.cpp.o" \
 "CMakeFiles/ask.dir/map.cpp.o" \
 "CMakeFiles/ask.dir/player.cpp.o" \
-"CMakeFiles/ask.dir/screen.cpp.o"
+"CMakeFiles/ask.dir/Screen.cpp.o" \
+"CMakeFiles/ask.dir/Object.cpp.o"
 
 # External object files for target ask
 ask_EXTERNAL_OBJECTS =
@@ -137,7 +151,8 @@ ask: CMakeFiles/ask.dir/main.cpp.o
 ask: CMakeFiles/ask.dir/app.cpp.o
 ask: CMakeFiles/ask.dir/map.cpp.o
 ask: CMakeFiles/ask.dir/player.cpp.o
-ask: CMakeFiles/ask.dir/screen.cpp.o
+ask: CMakeFiles/ask.dir/Screen.cpp.o
+ask: CMakeFiles/ask.dir/Object.cpp.o
 ask: CMakeFiles/ask.dir/build.make
 ask: /usr/local/Cellar/allegro/5.2.5.0/lib/liballegro.5.2.5.dylib
 ask: /usr/local/Cellar/allegro/5.2.5.0/lib/liballegro.5.2.dylib
@@ -180,7 +195,7 @@ ask: /usr/local/Cellar/allegro/5.2.5.0/lib/liballegro_video.5.2.dylib
 ask: /usr/local/Cellar/allegro/5.2.5.0/lib/liballegro_video.dylib
 ask: /usr/local/lib/liballegro_tiled.dylib
 ask: CMakeFiles/ask.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable ask"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ask"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ask.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

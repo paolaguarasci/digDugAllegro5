@@ -1,9 +1,10 @@
 #include "Screen.h"
+#include "Object.h"
 #include "_const.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 
-Screen::Screen() {
+Screen::Screen() : Object() {
   al_init_image_addon();
   display = al_create_display(SCREEN_W, SCREEN_H);
 }

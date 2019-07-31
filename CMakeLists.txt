@@ -52,7 +52,7 @@ cmake_minimum_required(VERSION 3.5)
 project(ask)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
-set(SOURCE_FILES main.cpp app.cpp map.cpp player.cpp screen.cpp)
+set(SOURCE_FILES main.cpp app.cpp map.cpp player.cpp Screen.cpp Object.cpp)
 add_executable(ask ${SOURCE_FILES})
 
 IF(UNIX)
