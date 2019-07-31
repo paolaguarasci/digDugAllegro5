@@ -19,6 +19,9 @@ public:
   float getVelY();
   int getDimX();
   int getDimY();
+  int getPosX();
+  int getAzione();
+  int getPosizione();
 };
 
 #endif // PLAYER_H

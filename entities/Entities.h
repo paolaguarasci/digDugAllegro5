@@ -22,6 +22,13 @@ public:
   virtual ~Entities();
   virtual void update(int _pos_x, int _pos_y, int _azione, int _posizione) = 0;
   virtual void draw() = 0;
+  virtual float getVelX() = 0;
+  virtual float getVelY() = 0;
+  virtual int getDimX() = 0;
+  virtual int getDimY() = 0;
+  virtual int getPosX() = 0;
+  virtual int getAzione() = 0;
+  virtual int getPosizione() = 0;
 };
 
 #endif // ENTITIES_H

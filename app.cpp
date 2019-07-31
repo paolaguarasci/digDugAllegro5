@@ -101,6 +101,10 @@ int App::Run(int argc, char *argv[]) {
         break;
       }
     }
+
+    enemy->update(enemy->getPosX() + 2, 0, enemy->getAzione(),
+                  enemy->getPosizione());
+
     if (draw && al_is_event_queue_empty(event_queue)) {
       draw = false;
       for (Object *o : obj)

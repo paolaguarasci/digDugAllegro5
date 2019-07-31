@@ -29,3 +29,7 @@ void Player::update(int _pos_x, int _pos_y, int _azione, int _posizione) {
 }
 int Player::getDimX() { return dim_x; }
 int Player::getDimY() { return dim_y; }
+
+int Player::getPosX() { return pos_x; }
+int Player::getAzione() { return azione; }
+int Player::getPosizione() { return posizione; }
