@@ -19,6 +19,8 @@ private:
   bool draw = true;
   int pos_x = 0;
   int pos_y = 0;
+  int velx;
+  int vely;
   int azione = 0;
   int posizione = 0;
   ALLEGRO_EVENT_QUEUE *event_queue = NULL;
