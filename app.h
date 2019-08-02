@@ -29,6 +29,7 @@ private:
   Screen *screen = NULL;
   std::list<Object *> obj;
   std::list<Entities *> ent;
+  float gravity;
 
 public:
   App();

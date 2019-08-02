@@ -2,10 +2,11 @@
 #include "Map.h"
 #include "Object.h"
 #include "const.h"
+#include <allegro5/allegro_tiled.h>
 
 App::App() {
-  pos_x = 32 * 2;
-  pos_y = SCREEN_H - (32 * 3);
+  pos_x = 32 * 3;
+  pos_y = 32 * 3;
   azione = 1;
   posizione = 1;
   al_init();
@@ -22,6 +23,7 @@ App::App() {
   obj.push_back(mappa);
   ent.push_back(player);
   ent.push_back(enemy);
+  gravity = 10;
 }
 
 int App::Run(int argc, char *argv[]) {
@@ -31,15 +33,16 @@ int App::Run(int argc, char *argv[]) {
     al_wait_for_event(event_queue, &ev);
     if (ev.type == ALLEGRO_EVENT_TIMER) {
       if (key[KEY_UP]) {
-        pos_y = (pos_y <= 0 ? SCREEN_H - player->getDimY()
-                            : pos_y - player->getVelY());
-        azione = 0;
-        posizione = (posizione <= 0 ? 2 : posizione - 1);
+        // pos_y = (pos_y <= 0 ? SCREEN_H - player->getDimY()
+        //                     : pos_y - player->getVelY());
+        // azione = 0;
+        // posizione = (posizione <= 0 ? 2 : posizione - 1);
+        gravity -= 10;
       }
       if (key[KEY_DOWN]) {
-        azione = 2;
-        pos_y += player->getVelY();
-        posizione = (posizione >= 2 ? 0 : posizione + 1);
+        // azione = 2;
+        // pos_y += player->getVelY();
+        // posizione = (posizione >= 2 ? 0 : posizione + 1);
       }
       if (key[KEY_LEFT]) {
         pos_x = (pos_x <= player->getDimX() ? SCREEN_W - player->getDimX()
@@ -55,7 +58,7 @@ int App::Run(int argc, char *argv[]) {
         posizione = (posizione >= 2 ? 0 : posizione + 1);
       }
       draw = true;
-      player->update(pos_x, pos_y, azione, posizione);
+
     } else if (ev.type == ALLEGRO_EVENT_KEY_DOWN &&
                ev.keyboard.keycode == ALLEGRO_KEY_ESCAPE) {
       break;
@@ -107,6 +110,19 @@ int App::Run(int argc, char *argv[]) {
       // delete enemy;
       ent.remove(enemy);
     }
+
+    char *lvName = "Blocks1";
+    ALLEGRO_MAP_TILE *tile = al_get_single_tile(
+        mappa->getMap(), al_get_map_layer(mappa->getMap(), lvName),
+        (pos_x + 12) / 16, (pos_y + 34) / 16);
+
+    char *pavimento = al_get_tile_property(tile, "collide", "false");
+
+    gravity = strcmp(pavimento, "true") == 0 ? 0 : 10;
+
+    pos_y += gravity;
+
+    player->update(pos_x, pos_y, azione, posizione);
     if (draw && al_is_event_queue_empty(event_queue)) {
       draw = false;
       for (Object *o : obj)

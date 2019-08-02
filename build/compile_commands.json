@@ -1,0 +1,42 @@
+[
+{
+  "directory": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build",
+  "command": "/usr/local/bin/g++-9   -I/usr/local/Cellar/allegro/5.2.5.0/include -I/usr/local/include   -std=c++14 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/digdug.dir/main.cpp.o -c \"/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/main.cpp\"",
+  "file": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/main.cpp"
+},
+{
+  "directory": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build",
+  "command": "/usr/local/bin/g++-9   -I/usr/local/Cellar/allegro/5.2.5.0/include -I/usr/local/include   -std=c++14 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/digdug.dir/App.cpp.o -c \"/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/App.cpp\"",
+  "file": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/App.cpp"
+},
+{
+  "directory": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build",
+  "command": "/usr/local/bin/g++-9   -I/usr/local/Cellar/allegro/5.2.5.0/include -I/usr/local/include   -std=c++14 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/digdug.dir/Map.cpp.o -c \"/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Map.cpp\"",
+  "file": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Map.cpp"
+},
+{
+  "directory": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build",
+  "command": "/usr/local/bin/g++-9   -I/usr/local/Cellar/allegro/5.2.5.0/include -I/usr/local/include   -std=c++14 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/digdug.dir/entities/Entities.cpp.o -c \"/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/entities/Entities.cpp\"",
+  "file": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/entities/Entities.cpp"
+},
+{
+  "directory": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build",
+  "command": "/usr/local/bin/g++-9   -I/usr/local/Cellar/allegro/5.2.5.0/include -I/usr/local/include   -std=c++14 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/digdug.dir/entities/Enemy.cpp.o -c \"/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/entities/Enemy.cpp\"",
+  "file": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/entities/Enemy.cpp"
+},
+{
+  "directory": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build",
+  "command": "/usr/local/bin/g++-9   -I/usr/local/Cellar/allegro/5.2.5.0/include -I/usr/local/include   -std=c++14 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/digdug.dir/entities/Player.cpp.o -c \"/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/entities/Player.cpp\"",
+  "file": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/entities/Player.cpp"
+},
+{
+  "directory": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build",
+  "command": "/usr/local/bin/g++-9   -I/usr/local/Cellar/allegro/5.2.5.0/include -I/usr/local/include   -std=c++14 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/digdug.dir/screen/Screen.cpp.o -c \"/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/screen/Screen.cpp\"",
+  "file": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/screen/Screen.cpp"
+},
+{
+  "directory": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build",
+  "command": "/usr/local/bin/g++-9   -I/usr/local/Cellar/allegro/5.2.5.0/include -I/usr/local/include   -std=c++14 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/digdug.dir/Object.cpp.o -c \"/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Object.cpp\"",
+  "file": "/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/Object.cpp"
+}
+]

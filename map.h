@@ -19,6 +19,7 @@ public:
   ~Map();
   void draw();
   void update() {}
+  ALLEGRO_MAP *getMap();
 };
 
 #endif // Map.h

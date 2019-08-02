@@ -12,5 +12,7 @@ Map::Map() {
 }
 Map::~Map() { al_free_map(map); }
 void Map::draw() {
+
   al_draw_map_region(map, map_x, map_y, screen_width, screen_height, 0, 0, 0);
 }
+ALLEGRO_MAP *Map::getMap() { return map; }
