@@ -58,7 +58,8 @@ set(SOURCE_FILES
   Map.cpp 
   entities/Entities.cpp
   entities/Enemy.cpp
-  entities/Player.cpp 
+  entities/Harpoon.cpp
+  entities/Player.cpp
   screen/Screen.cpp 
   Object.cpp)
 add_executable(digdug ${SOURCE_FILES})

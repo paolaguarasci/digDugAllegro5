@@ -22,7 +22,9 @@ App::App() {
   mappa = new Map();
   player = new Player();
   enemy = new Enemy();
+  arma = new Harpoon();
   obj.push_back(mappa);
+  ent.push_back(arma);
   ent.push_back(player);
   ent.push_back(enemy);
   gravity = 10;
@@ -42,9 +44,9 @@ int App::Run(int argc, char *argv[]) {
         vely -= 50;
       }
       if (key[KEY_DOWN]) {
-        azione = 2;
+        // azione = 2;
         // pos_y += player->getVelY();
-        posizione = (posizione >= 2 ? 0 : posizione + 1);
+        // posizione = (posizione >= 2 ? 0 : posizione + 1);
       }
       if (key[KEY_LEFT]) {
         // pos_x = (pos_x <= player->getDimX() ? SCREEN_W - player->getDimX()
@@ -57,6 +59,9 @@ int App::Run(int argc, char *argv[]) {
         azione = 1;
         velx += 10;
         posizione = (posizione >= 2 ? 0 : posizione + 1);
+      }
+      if (key[KEY_SPACE]) {
+        arma->start(player->getPosX(), player->getPosY());
       }
       draw = true;
 
@@ -80,6 +85,10 @@ int App::Run(int argc, char *argv[]) {
       case ALLEGRO_KEY_RIGHT:
         key[KEY_RIGHT] = true;
         break;
+
+      case ALLEGRO_KEY_SPACE:
+        key[KEY_SPACE] = true;
+        break;
       }
     } else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
       posizione = 1;
@@ -99,14 +108,16 @@ int App::Run(int argc, char *argv[]) {
       case ALLEGRO_KEY_RIGHT:
         key[KEY_RIGHT] = false;
         break;
-
+      case ALLEGRO_KEY_SPACE:
+        key[KEY_SPACE] = false;
+        break;
       case ALLEGRO_KEY_ESCAPE:
         doexit = true;
         break;
       }
     }
     enemy->update();
-    player->isColl(enemy);
+    arma->isColl(enemy);
     if (!(enemy->getLive())) {
       // delete enemy;
       ent.remove(enemy);

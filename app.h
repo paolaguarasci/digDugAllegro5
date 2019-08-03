@@ -4,17 +4,18 @@
 #include "Map.h"
 #include "const.h"
 #include "entities/Enemy.h"
+#include "entities/Harpoon.h"
 #include "entities/Player.h"
 #include "screen/Screen.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_tiled.h>
 #include <iostream>
 #include <list>
-enum KEY { KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT };
+enum KEY { KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_SPACE };
 
 class App {
 private:
-  bool key[4] = {false, false, false, false};
+  bool key[5] = {false, false, false, false, false};
   bool doexit = false;
   bool draw = true;
   int pos_x = 0;
@@ -32,6 +33,7 @@ private:
   std::list<Object *> obj;
   std::list<Entities *> ent;
   float gravity;
+  Harpoon *arma;
 
 public:
   App();
