@@ -11,14 +11,19 @@ Player::Player() {
   dim_y = 33;
   azione = 1;
   posizione = 1;
+  angolo = 0;
 }
 Player::~Player() { al_destroy_bitmap(bitmap); }
-void Player::draw() {
-  al_convert_mask_to_alpha(bitmap, al_map_rgb(32, 156, 0));
-  al_draw_bitmap_region(bitmap, posizione * dim_x, azione * dim_y, dim_x, dim_y,
-                        pos_x, pos_y, 0);
+void Player::draw(ALLEGRO_DISPLAY *display) {
+  ALLEGRO_BITMAP *tmp = al_create_sub_bitmap(bitmap, posizione * dim_x,
+                                             azione * dim_y, dim_x, dim_y);
+  al_convert_mask_to_alpha(tmp, al_map_rgb(32, 156, 0));
+  // al_draw_bitmap_region(bitmap, posizione * dim_x, azione * dim_y, dim_x,
+  // dim_y,
+  //                       pos_x, pos_y, 0);
+  al_draw_scaled_rotated_bitmap(tmp, 12, 17, pos_x, pos_y, 2, 2, angolo, 0);
 }
-
+void Player::setAngolo(float _angolo) { angolo = _angolo; }
 float Player::getVelX() { return vel_x; }
 float Player::getVelY() { return vel_y; }
 void Player::update(int _pos_x, int _pos_y, int _azione, int _posizione) {

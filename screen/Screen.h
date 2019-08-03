@@ -12,6 +12,7 @@ public:
   ~Screen();
   void draw();
   void update(){};
+  ALLEGRO_DISPLAY *getDisplay();
 };
 
 #endif // schermo_H

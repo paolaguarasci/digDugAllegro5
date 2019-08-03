@@ -11,3 +11,4 @@ Screen::Screen() : Object() {
 Screen::~Screen() { al_destroy_display(display); }
 
 void Screen::draw() { al_flip_display(); }
+ALLEGRO_DISPLAY *Screen::getDisplay() { return display; }

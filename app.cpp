@@ -1,7 +1,7 @@
 #include "App.h"
-#include "Map.h"
 #include "Object.h"
 #include "const.h"
+#include "map/Map.h"
 #include <allegro5/allegro_tiled.h>
 
 App::App() {
@@ -37,31 +37,37 @@ int App::Run(int argc, char *argv[]) {
     al_wait_for_event(event_queue, &ev);
     if (ev.type == ALLEGRO_EVENT_TIMER) {
       if (key[KEY_UP]) {
-        // pos_y = (pos_y <= 0 ? SCREEN_H - player->getDimY()
-        //                     : pos_y - player->getVelY());
-        // azione = 0;
-        // posizione = (posizione <= 0 ? 2 : posizione - 1);
-        vely -= 50;
+        pos_y = (pos_y <= 0 ? SCREEN_H - player->getDimY()
+                            : pos_y - player->getVelY());
+        azione = 1;
+        posizione = (posizione <= 0 ? 2 : posizione - 1);
+        vely -= 3;
+        player->setAngolo(4.5);
       }
       if (key[KEY_DOWN]) {
-        // azione = 2;
-        // pos_y += player->getVelY();
-        // posizione = (posizione >= 2 ? 0 : posizione + 1);
+        azione = 3;
+        vely += 3;
+        pos_y += player->getVelY();
+        posizione = (posizione >= 2 ? 0 : posizione + 1);
+        player->setAngolo(4.70);
       }
       if (key[KEY_LEFT]) {
         // pos_x = (pos_x <= player->getDimX() ? SCREEN_W - player->getDimX()
         //                                     : pos_x - player->getVelX());
-        velx -= 10;
+        velx -= 3;
         azione = 3;
         posizione = (posizione <= 0 ? 2 : posizione - 1);
+        player->setAngolo(0);
       }
       if (key[KEY_RIGHT]) {
         azione = 1;
-        velx += 10;
+        velx += 3;
         posizione = (posizione >= 2 ? 0 : posizione + 1);
+        player->setAngolo(0);
       }
       if (key[KEY_SPACE]) {
         arma->start(player->getPosX(), player->getPosY());
+        mappa->scava(player->getPosX(), player->getPosY());
       }
       draw = true;
 
@@ -122,28 +128,23 @@ int App::Run(int argc, char *argv[]) {
       // delete enemy;
       ent.remove(enemy);
     }
-
-    char *lvName = "Blocks1";
-    ALLEGRO_MAP_TILE *tile = al_get_single_tile(
-        mappa->getMap(), al_get_map_layer(mappa->getMap(), lvName),
-        (player->getPosX() + 12) / 16, (player->getPosY() + 34) / 16);
-
-    char *pavimento = al_get_tile_property(tile, "collide", "false");
-
-    gravity = strcmp(pavimento, "true") == 0 ? 0 : 10;
-    vely += gravity;
+    bool isFloor = mappa->isBlack((player->getPosX()), (player->getPosY()));
+    // gravity = isFloor ? 0 : 10;
+    // vely += gravity;
     // player-> =
     //     (pos_y <= 0 ? SCREEN_H - player->getDimY() : pos_y -
     //     player->getVelY());
     // pos_x = (pos_x <= player->getDimX() ? SCREEN_W - player->getDimX()
     //                                     : pos_x - player->getVelX());
     player->update(pos_x + velx, pos_y + vely, azione, posizione);
+    mappa->scava(player->getPosX(), player->getPosY());
     if (draw && al_is_event_queue_empty(event_queue)) {
       draw = false;
       for (Object *o : obj)
         o->draw();
       for (Entities *e : ent)
         e->draw();
+      player->draw(screen->getDisplay());
       screen->draw();
     }
   }

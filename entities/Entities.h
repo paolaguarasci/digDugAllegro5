@@ -21,7 +21,7 @@ public:
   Entities();
   virtual ~Entities();
   virtual void update(){};
-  virtual void draw() = 0;
+  virtual void draw(){};
   virtual float getVelX() = 0;
   virtual float getVelY() = 0;
   virtual int getDimX() = 0;

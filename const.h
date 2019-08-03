@@ -1,6 +1,6 @@
 #define FPS 30.0
-#define SCREEN_W 800 // 16 * 50
-#define SCREEN_H 624 // 16 * 39
+#define SCREEN_W 512 // 32 * 16
+#define SCREEN_H 512 // 32 * 16
 
 #define running true
 #define redraw true

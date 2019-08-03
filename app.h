@@ -1,11 +1,11 @@
 #ifndef APP_H
 #define APP_H
 
-#include "Map.h"
 #include "const.h"
 #include "entities/Enemy.h"
 #include "entities/Harpoon.h"
 #include "entities/Player.h"
+#include "map/Map.h"
 #include "screen/Screen.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_tiled.h>
