@@ -1,3 +1,0 @@
-/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles/rebuild_cache.dir
-/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles/edit_cache.dir
-/System/Volumes/Data/Users/paola/Library/CloudStorage/iCloud Drive/Desktop/workspace/_cpp/allegroStarterKit/build/CMakeFiles/digdug.dir
