@@ -27,13 +27,13 @@ void Map::init() {
     pos_x = 32 * k;
     pos_y = 32 * z;
     if (n == 0)
-      tileset.push_back(new Tile(0, pos_x, pos_y));
+      tileset.push_back(new Tile(0, pos_x, pos_y, k, z));
     if (n == 1)
-      tileset.push_back(new Tile(1, pos_x, pos_y));
+      tileset.push_back(new Tile(1, pos_x, pos_y, k, z));
     if (n == 2)
-      tileset.push_back(new Tile(2, pos_x, pos_y));
+      tileset.push_back(new Tile(2, pos_x, pos_y, k, z));
     if (n == 3)
-      tileset.push_back(new Tile(3, pos_x, pos_y));
+      tileset.push_back(new Tile(3, pos_x, pos_y, k, z));
     k++;
     if (k >= 16) {
       k = 0;
@@ -49,16 +49,22 @@ void Map::draw() {
 
 bool Map::isBlack(int pos_x, int pos_y) {
   Tile *tile = NULL;
-  for (Tile *t : tileset) {
-    float areaX_a = t->getPosX();
-    float areaX_b = t->getPosX() + 32;
-    float areaY_a = t->getPosY();
-    float areaY_b = t->getPosY() + 32;
+  // for (Tile *t : tileset) {
+  //   float areaX_a = t->getPosX();
+  //   float areaX_b = t->getPosX() + 32;
+  //   float areaY_a = t->getPosY();
+  //   float areaY_b = t->getPosY() + 32;
 
-    if (pos_y > areaY_a && pos_y < areaY_b && pos_x > areaX_a &&
-        pos_x < areaX_b) {
+  //   if (pos_y > areaY_a && pos_y < areaY_b && pos_x > areaX_a &&
+  //       pos_x < areaX_b) {
+  //     tile = t;
+  //   }
+  // }
+  int x = pos_x / 32;
+  int y = pos_y / 32;
+  for (Tile *t : tileset) {
+    if (t->getX() == x && t->getY() == y)
       tile = t;
-    }
   }
   if (tile != NULL)
     return tile->getTipo() == 0;

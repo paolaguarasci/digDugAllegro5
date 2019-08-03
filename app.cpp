@@ -70,7 +70,6 @@ int App::Run(int argc, char *argv[]) {
         mappa->scava(player->getPosX(), player->getPosY());
       }
       draw = true;
-
     } else if (ev.type == ALLEGRO_EVENT_KEY_DOWN &&
                ev.keyboard.keycode == ALLEGRO_KEY_ESCAPE) {
       break;
@@ -144,7 +143,7 @@ int App::Run(int argc, char *argv[]) {
         o->draw();
       for (Entities *e : ent)
         e->draw();
-      player->draw(screen->getDisplay());
+      player->draw();
       screen->draw();
     }
   }

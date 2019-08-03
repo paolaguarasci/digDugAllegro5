@@ -15,7 +15,7 @@ private:
 public:
   Player();
   ~Player();
-  void draw(ALLEGRO_DISPLAY *);
+  void draw();
   void update(int _pos_x, int _pos_y, int _azione, int _posizione);
   float getVelX();
   float getVelY();

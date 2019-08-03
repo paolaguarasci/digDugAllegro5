@@ -4,8 +4,8 @@ Player::Player() {
   bitmap = al_load_bitmap("../assets/img/player.png");
   pos_x = 100;
   pos_y = SCREEN_H - 100;
-  vel_x = 3;
-  vel_y = 3;
+  vel_x = 2;
+  vel_y = 2;
   acc = 0;
   dim_x = 24;
   dim_y = 33;
@@ -14,14 +14,15 @@ Player::Player() {
   angolo = 0;
 }
 Player::~Player() { al_destroy_bitmap(bitmap); }
-void Player::draw(ALLEGRO_DISPLAY *display) {
+void Player::draw() {
   ALLEGRO_BITMAP *tmp = al_create_sub_bitmap(bitmap, posizione * dim_x,
                                              azione * dim_y, dim_x, dim_y);
   al_convert_mask_to_alpha(tmp, al_map_rgb(32, 156, 0));
   // al_draw_bitmap_region(bitmap, posizione * dim_x, azione * dim_y, dim_x,
   // dim_y,
   //                       pos_x, pos_y, 0);
-  al_draw_scaled_rotated_bitmap(tmp, 12, 17, pos_x, pos_y, 2, 2, angolo, 0);
+  al_draw_scaled_rotated_bitmap(tmp, 12, 17, pos_x, pos_y, 1.25, 1.25, angolo,
+                                0);
 }
 void Player::setAngolo(float _angolo) { angolo = _angolo; }
 float Player::getVelX() { return vel_x; }
