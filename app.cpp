@@ -5,12 +5,7 @@
 #include <allegro5/allegro_tiled.h>
 
 App::App() {
-  pos_x = 32 * 3;
-  pos_y = 32 * 3;
-  velx = 0;
-  vely = 0;
-  azione = 1;
-  posizione = 1;
+
   al_init();
   al_install_keyboard();
   screen = new Screen();
@@ -28,6 +23,12 @@ App::App() {
   ent.push_back(player);
   ent.push_back(enemy);
   gravity = 10;
+  pos_x = player->getPosX();
+  pos_y = player->getPosY();
+  velx = player->getVelX();
+  vely = player->getVelY();
+  azione = player->getAzione();
+  posizione = player->getPosizione();
 }
 
 int App::Run(int argc, char *argv[]) {
@@ -144,6 +145,7 @@ int App::Run(int argc, char *argv[]) {
       for (Entities *e : ent)
         e->draw();
       player->draw();
+      // player->init();
       screen->draw();
     }
   }

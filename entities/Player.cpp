@@ -2,16 +2,27 @@
 #include "Entities.h"
 Player::Player() {
   bitmap = al_load_bitmap("../assets/img/player.png");
-  pos_x = 100;
-  pos_y = SCREEN_H - 100;
+  pos_x = SCREEN_W - 24;
+  pos_y = (32 * 3) + 16;
   vel_x = 2;
   vel_y = 2;
   acc = 0;
   dim_x = 24;
-  dim_y = 33;
-  azione = 1;
+  dim_y = 32;
+  azione = 3;
   posizione = 1;
   angolo = 0;
+}
+void Player::init() {
+  std::cout << "Player init\n";
+  while (pos_x > SCREEN_W / 2) {
+    update(pos_x - 3, pos_y, 3, 1);
+    draw();
+  }
+  while (pos_y < SCREEN_H / 2) {
+    update(pos_x, pos_y + 3, 2, 1);
+    draw();
+  }
 }
 Player::~Player() { al_destroy_bitmap(bitmap); }
 void Player::draw() {
