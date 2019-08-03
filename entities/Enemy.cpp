@@ -3,7 +3,7 @@ Enemy::Enemy() {
   bitmap = al_load_bitmap("../assets/img/enemy.png");
   pos_x = 300;
   inizial_pos_x = 300;
-  pos_y = SCREEN_H - 75;
+  pos_y = SCREEN_H - 100;
   vel_x = 2;
   vel_y = 3;
   acc = 0;
