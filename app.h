@@ -11,6 +11,7 @@
 #include <allegro5/allegro_tiled.h>
 #include <iostream>
 #include <list>
+#include <string>
 enum KEY { KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_SPACE };
 
 class App {
@@ -34,6 +35,8 @@ private:
   std::list<Entities *> ent;
   float gravity;
   Harpoon *arma;
+  std::string dir;
+  std::string dir_prec;
 
 public:
   App();

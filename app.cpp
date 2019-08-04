@@ -29,6 +29,8 @@ App::App() {
   vely = player->getVelY();
   azione = player->getAzione();
   posizione = player->getPosizione();
+  dir = "left";
+  dir_prec = "";
 }
 
 int App::Run(int argc, char *argv[]) {
@@ -44,6 +46,8 @@ int App::Run(int argc, char *argv[]) {
         posizione = (posizione <= 0 ? 2 : posizione - 1);
         vely -= 3;
         player->setAngolo(4.5);
+        dir_prec = dir;
+        dir = "up";
       }
       if (key[KEY_DOWN]) {
         azione = 3;
@@ -51,6 +55,8 @@ int App::Run(int argc, char *argv[]) {
         pos_y += player->getVelY();
         posizione = (posizione >= 2 ? 0 : posizione + 1);
         player->setAngolo(4.70);
+        dir_prec = dir;
+        dir = "down";
       }
       if (key[KEY_LEFT]) {
         // pos_x = (pos_x <= player->getDimX() ? SCREEN_W - player->getDimX()
@@ -59,12 +65,16 @@ int App::Run(int argc, char *argv[]) {
         azione = 3;
         posizione = (posizione <= 0 ? 2 : posizione - 1);
         player->setAngolo(0);
+        dir_prec = dir;
+        dir = "left";
       }
       if (key[KEY_RIGHT]) {
         azione = 1;
         velx += 3;
         posizione = (posizione >= 2 ? 0 : posizione + 1);
         player->setAngolo(0);
+        dir_prec = dir;
+        dir = "right";
       }
       if (key[KEY_SPACE]) {
         arma->start(player->getPosX(), player->getPosY());
@@ -138,6 +148,7 @@ int App::Run(int argc, char *argv[]) {
     //                                     : pos_x - player->getVelX());
     player->update(pos_x + velx, pos_y + vely, azione, posizione);
     mappa->scava(player->getPosX(), player->getPosY());
+    std::cout << "Direzione: " << dir << " (prec: " << dir_prec << ")\n";
     if (draw && al_is_event_queue_empty(event_queue)) {
       draw = false;
       for (Object *o : obj)
