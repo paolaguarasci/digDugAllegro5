@@ -77,7 +77,7 @@ int App::Run(int argc, char *argv[]) {
         dir = "right";
       }
       if (key[KEY_SPACE]) {
-        arma->start(player->getPosX(), player->getPosY());
+        arma->start(player->getPosX(), player->getPosY(), dir);
         mappa->scava(player->getPosX(), player->getPosY());
       }
       draw = true;
@@ -146,9 +146,15 @@ int App::Run(int argc, char *argv[]) {
     //     player->getVelY());
     // pos_x = (pos_x <= player->getDimX() ? SCREEN_W - player->getDimX()
     //                                     : pos_x - player->getVelX());
+
+    if ((player->getPosX() - 16) % 32 == 0 &&
+        (player->getPosY() - 16) % 32 == 0) {
+      std::cout << "sono al centro di una mattonella!\n";
+    }
+
     player->update(pos_x + velx, pos_y + vely, azione, posizione);
     mappa->scava(player->getPosX(), player->getPosY());
-    std::cout << "Direzione: " << dir << " (prec: " << dir_prec << ")\n";
+    // std::cout << "Direzione: " << dir << " (prec: " << dir_prec << ")\n";
     if (draw && al_is_event_queue_empty(event_queue)) {
       draw = false;
       for (Object *o : obj)

@@ -2,8 +2,8 @@
 #include "Entities.h"
 Player::Player() {
   bitmap = al_load_bitmap("../assets/img/player.png");
-  pos_x = SCREEN_W - 24;
-  pos_y = (32 * 3) + 16;
+  pos_x = SCREEN_W - 100;
+  pos_y = (32 * 3);
   vel_x = 2;
   vel_y = 2;
   acc = 0;
@@ -33,7 +33,7 @@ void Player::draw() {
   // al_draw_bitmap_region(bitmap, posizione * dim_x, azione * dim_y, dim_x,
   // dim_y,
   //                       pos_x, pos_y, 0);
-  al_draw_scaled_rotated_bitmap(tmp, 12, 17, pos_x, pos_y, 1.25, 1.25, angolo,
+  al_draw_scaled_rotated_bitmap(tmp, 12, 17, pos_x, pos_y, 1.50, 1.50, angolo,
                                 2 * flip);
 }
 void Player::setAngolo(float _angolo) { angolo = _angolo; }

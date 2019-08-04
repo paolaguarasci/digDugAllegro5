@@ -1,4 +1,4 @@
-#define FPS 30.0
+#define FPS 25.0
 #define SCREEN_W 512 // 32 * 16
 #define SCREEN_H 512 // 32 * 16
 
