@@ -5,7 +5,6 @@
 #include "../const.h"
 #include "Entities.h"
 #include <allegro5/allegro.h>
-#include <allegro5/allegro_tiled.h>
 #include <iostream>
 
 class Player : public Entities {

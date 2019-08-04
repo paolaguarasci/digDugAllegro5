@@ -8,7 +8,6 @@
 #include "map/Map.h"
 #include "screen/Screen.h"
 #include <allegro5/allegro.h>
-#include <allegro5/allegro_tiled.h>
 #include <iostream>
 #include <list>
 #include <string>
