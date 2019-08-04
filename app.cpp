@@ -133,12 +133,56 @@ int App::Run(int argc, char *argv[]) {
       ent.remove(enemy);
     }
     bool isFloor = mappa->isBlack((player->getPosX()), (player->getPosY()));
+    //////////////////////////////
+    if (dir.compare("down") == 0 && dir_prec.compare("right") == 0) {
+      while ((pos_x + 16) % 32 != 0) {
+        pos_x++;
+      }
+    }
+    if (dir.compare("up") == 0 && dir_prec.compare("right") == 0) {
+      while ((pos_x + 16) % 32 != 0) {
+        pos_x++;
+      }
+    }
+
+    if (dir.compare("down") == 0 && dir_prec.compare("left") == 0) {
+      while ((pos_x - 16) % 32 != 0) {
+        pos_x--;
+      }
+    }
+    if (dir.compare("up") == 0 && dir_prec.compare("left") == 0) {
+      while ((pos_x - 16) % 32 != 0) {
+        pos_x--;
+      }
+    }
+
+    //////////////////////////////
+    if (dir.compare("left") == 0 && dir_prec.compare("down") == 0) {
+      while ((pos_y + 16) % 32 != 0) {
+        pos_y++;
+      }
+    }
+    if (dir.compare("left") == 0 && dir_prec.compare("up") == 0) {
+      while ((pos_y - 16) % 32 != 0) {
+        pos_y--;
+      }
+    }
+    if (dir.compare("right") == 0 && dir_prec.compare("up") == 0) {
+      while ((pos_y - 16) % 32 != 0) {
+        pos_y--;
+      }
+    }
+    if (dir.compare("right") == 0 && dir_prec.compare("down") == 0) {
+      while ((pos_y + 16) % 32 != 0) {
+        pos_y++;
+      }
+    }
 
     if ((player->getPosX() - 16) % 32 == 0 &&
         (player->getPosY() - 16) % 32 == 0) {
       std::cout << "sono al centro di una mattonella!\n";
     }
-
+    //////////////////////////////
     // player->update(pos_x + velx, pos_y + vely, azione, posizione);
     player->update(pos_x, pos_y, azione, posizione);
 
@@ -152,6 +196,7 @@ int App::Run(int argc, char *argv[]) {
         e->draw();
       player->draw();
       // player->init();
+      std::cout << pos_x << ", " << pos_y << "\n";
       al_draw_filled_circle(pos_x, pos_y, 5, al_map_rgb(255, 0, 255));
       for (int i = 0; i < 16; i++) {
         for (int j = 0; j < 16; j++) {
