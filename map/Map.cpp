@@ -47,29 +47,37 @@ void Map::draw() {
     t->draw();
 }
 
-bool Map::isBlack(int pos_x, int pos_y) {
+int Map::nextInDir(int pos_x, int pos_y, std::string dir) {
   Tile *tile = NULL;
-  // for (Tile *t : tileset) {
-  //   float areaX_a = t->getPosX();
-  //   float areaX_b = t->getPosX() + 32;
-  //   float areaY_a = t->getPosY();
-  //   float areaY_b = t->getPosY() + 32;
+  int redDot_x;
+  int redDot_y;
 
-  //   if (pos_y > areaY_a && pos_y < areaY_b && pos_x > areaX_a &&
-  //       pos_x < areaX_b) {
-  //     tile = t;
-  //   }
-  // }
-  int x = pos_x / 32;
-  int y = pos_y / 32;
+  if (dir.compare("left") == 0) {
+    redDot_x = (pos_x / 32) - 1;
+    redDot_y = (pos_y / 32);
+
+  } else if (dir.compare("up") == 0) {
+    redDot_x = (pos_x / 32);
+    redDot_y = (pos_y / 32) - 1;
+
+  } else if (dir.compare("right") == 0) {
+    redDot_x = (pos_x / 32) + 1;
+    redDot_y = (pos_y / 32);
+
+  } else if (dir.compare("down") == 0) {
+    redDot_x = (pos_x / 32);
+    redDot_y = (pos_y / 32) + 1;
+  }
+  std::cout << redDot_x << " " << redDot_y << "\n";
   for (Tile *t : tileset) {
-    if (t->getX() == x && t->getY() == y)
+    if (t->getX() == redDot_x && t->getY() == redDot_y) {
       tile = t;
+    }
   }
   if (tile != NULL)
-    return tile->getTipo() == 0;
+    return tile->getTipo();
   else
-    return NULL;
+    return -1;
 }
 
 void Map::scava(int pos_x, int pos_y) {

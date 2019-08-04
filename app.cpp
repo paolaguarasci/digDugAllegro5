@@ -40,36 +40,52 @@ int App::Run(int argc, char *argv[]) {
     al_wait_for_event(event_queue, &ev);
     if (ev.type == ALLEGRO_EVENT_TIMER) {
       if (key[KEY_UP]) {
-        pos_y -= player->getVelY();
+        dir = "up";
+        if (mappa->nextInDir(player->getPosX(), player->getPosY(), dir) != 0) {
+          pos_y -= player->getVelY() - 2;
+        } else {
+          pos_y -= player->getVelY();
+        }
         azione = 1;
         posizione = (posizione <= 0 ? 2 : posizione - 1);
         player->setAngolo(4.5);
         dir_prec = dir;
-        dir = "up";
       }
       if (key[KEY_DOWN]) {
-        pos_y += player->getVelY();
+        dir = "down";
+        if (mappa->nextInDir(player->getPosX(), player->getPosY(), dir) != 0) {
+          pos_y += player->getVelY() - 2;
+        } else {
+          pos_y += player->getVelY();
+        }
         azione = 3;
         posizione = (posizione >= 2 ? 0 : posizione + 1);
         player->setAngolo(4.70);
         dir_prec = dir;
-        dir = "down";
       }
       if (key[KEY_LEFT]) {
-        pos_x -= player->getVelX();
+        dir = "left";
+        if (mappa->nextInDir(player->getPosX(), player->getPosY(), dir) != 0) {
+          pos_x -= player->getVelX() - 2;
+        } else {
+          pos_x -= player->getVelX();
+        }
         azione = 3;
         posizione = (posizione <= 0 ? 2 : posizione - 1);
         player->setAngolo(0);
         dir_prec = dir;
-        dir = "left";
       }
       if (key[KEY_RIGHT]) {
-        pos_x += player->getVelX();
+        dir = "right";
+        if (mappa->nextInDir(player->getPosX(), player->getPosY(), dir) != 0) {
+          pos_x += player->getVelX() - 2;
+        } else {
+          pos_x += player->getVelX();
+        }
         azione = 1;
         posizione = (posizione >= 2 ? 0 : posizione + 1);
         player->setAngolo(0);
         dir_prec = dir;
-        dir = "right";
       }
       if (key[KEY_SPACE]) {
         arma->start(player->getPosX(), player->getPosY(), dir);
@@ -132,7 +148,8 @@ int App::Run(int argc, char *argv[]) {
       // delete enemy;
       ent.remove(enemy);
     }
-    bool isFloor = mappa->isBlack((player->getPosX()), (player->getPosY()));
+    // bool isFloor = mappa->isBlack((player->getPosX()),
+    // (player->getPosY()));
     //////////////////////////////
     if (dir.compare("down") == 0 && dir_prec.compare("right") == 0) {
       while ((pos_x + 16) % 32 != 0) {
@@ -178,14 +195,14 @@ int App::Run(int argc, char *argv[]) {
       }
     }
 
-    if ((player->getPosX() - 16) % 32 == 0 &&
-        (player->getPosY() - 16) % 32 == 0) {
-      std::cout << "sono al centro di una mattonella!\n";
-    }
+    // if ((player->getPosX() - 16) % 32 == 0 &&
+    //     (player->getPosY() - 16) % 32 == 0) {
+    //   std::cout << "sono al centro di una mattonella!\n";
+    // }
     //////////////////////////////
     // player->update(pos_x + velx, pos_y + vely, azione, posizione);
-    player->update(pos_x, pos_y, azione, posizione);
 
+    player->update(pos_x, pos_y, azione, posizione);
     mappa->scava(player->getPosX(), player->getPosY());
     // std::cout << "Direzione: " << dir << " (prec: " << dir_prec << ")\n";
     if (draw && al_is_event_queue_empty(event_queue)) {
@@ -196,16 +213,17 @@ int App::Run(int argc, char *argv[]) {
         e->draw();
       player->draw();
       // player->init();
-      std::cout << pos_x << ", " << pos_y << "\n";
-      al_draw_filled_circle(pos_x, pos_y, 5, al_map_rgb(255, 0, 255));
-      for (int i = 0; i < 16; i++) {
-        for (int j = 0; j < 16; j++) {
-          al_draw_filled_circle((32 * i) + 16, (32 * j) + 16, 1.5,
-                                al_map_rgb(255, 0, 0));
-          al_draw_rectangle((32 * i), (32 * j), (32 * i) + 32, (32 * j) + 32,
-                            al_map_rgb(0, 255, 0), 1);
-        }
-      }
+      // std::cout << pos_x / 32 << ", " << pos_y / 32 << "\n";
+      // al_draw_filled_circle(pos_x, pos_y, 5, al_map_rgb(255, 0, 255));
+      // for (int i = 0; i < 16; i++) {
+      //   for (int j = 0; j < 16; j++) {
+      //     al_draw_filled_circle((32 * i) + 16, (32 * j) + 16, 1.5,
+      //                           al_map_rgb(255, 0, 0));
+      //     al_draw_rectangle((32 * i), (32 * j), (32 * i) + 32, (32 * j) +
+      //     32,
+      //                       al_map_rgb(0, 255, 0), 1);
+      //   }
+      // }
 
       screen->draw();
     }

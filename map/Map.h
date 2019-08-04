@@ -22,7 +22,7 @@ public:
   void init();
   void draw();
   void update();
-  bool isBlack(int pos_x, int pos_y);
+  int nextInDir(int pos_x, int pos_y, std::string dir);
   void scava(int pos_x, int pos_y);
 };
 
