@@ -26,6 +26,7 @@ void Player::init() {
 }
 Player::~Player() { al_destroy_bitmap(bitmap); }
 void Player::draw() {
+  bool flip = false;
   ALLEGRO_BITMAP *tmp = al_create_sub_bitmap(bitmap, posizione * dim_x,
                                              azione * dim_y, dim_x, dim_y);
   al_convert_mask_to_alpha(tmp, al_map_rgb(32, 156, 0));
@@ -33,7 +34,7 @@ void Player::draw() {
   // dim_y,
   //                       pos_x, pos_y, 0);
   al_draw_scaled_rotated_bitmap(tmp, 12, 17, pos_x, pos_y, 1.25, 1.25, angolo,
-                                0);
+                                2 * flip);
 }
 void Player::setAngolo(float _angolo) { angolo = _angolo; }
 float Player::getVelX() { return vel_x; }
