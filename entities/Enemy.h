@@ -12,6 +12,7 @@ private:
   int inizial_pos_x;
   int passi;
   int direzione;
+  float angolo = 0;
 
 public:
   Enemy();
