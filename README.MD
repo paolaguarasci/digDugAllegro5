@@ -14,3 +14,12 @@ RIMOSSA!
 - [ ] mappa corretta
 - [ ] collisioni con la mappa
 - [ ] arma
+
+---
+
+**fullscreen** queste righe di codice fanno un simpaticissimo toggle
+
+```cpp
+// toggle fullscreen
+al_set_display_flag(display, ALLEGRO_FULLSCREEN_WINDOW, !(al_get_display_flags(display) & ALLEGRO_FULLSCREEN_WINDOW));
+```
