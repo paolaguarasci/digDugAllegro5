@@ -88,7 +88,8 @@ int App::Run(int argc, char *argv[]) {
         dir_prec = dir;
       }
       if (key[KEY_SPACE]) {
-        arma->start(player->getPosX(), player->getPosY(), dir);
+        // arma->start(player->getPosX(), player->getPosY(), dir);
+        screen->fullscreen();
       }
       draw = true;
     } else if (ev.type == ALLEGRO_EVENT_KEY_DOWN &&
@@ -236,6 +237,7 @@ App::~App() {
     delete o;
   for (Entities *e : ent)
     delete e;
+
   al_uninstall_keyboard();
   al_destroy_timer(timer);
   al_destroy_event_queue(event_queue);

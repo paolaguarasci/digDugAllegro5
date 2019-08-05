@@ -11,7 +11,7 @@ Harpoon::Harpoon() {
   inizial_pos_x = 0;
   inizial_pos_y = 0;
 }
-Harpoon::~Harpoon() {}
+Harpoon::~Harpoon() { al_destroy_bitmap(bitmap); }
 void Harpoon::start(int _pos_x, int _pos_y, std::string _dir) {
   pos_y = _pos_y + 16;
   pos_x = _pos_x + 10;

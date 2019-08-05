@@ -6,6 +6,12 @@
 class Screen : public Object {
 private:
   ALLEGRO_DISPLAY *display;
+  ALLEGRO_TRANSFORM t;
+  float sx;
+  float sy;
+  float windowWidth;
+  float windowHeight;
+  ALLEGRO_BITMAP *icon;
 
 public:
   Screen();
@@ -13,6 +19,7 @@ public:
   void draw();
   void update(){};
   ALLEGRO_DISPLAY *getDisplay();
+  void fullscreen();
 };
 
 #endif // schermo_H

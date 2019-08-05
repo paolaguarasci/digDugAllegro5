@@ -41,7 +41,10 @@ void Map::init() {
     }
   }
 }
-Map::~Map() {}
+Map::~Map() {
+  for (Tile *t : tileset)
+    delete t;
+}
 void Map::draw() {
   for (Tile *t : tileset)
     t->draw();
