@@ -5,6 +5,7 @@
 #include <allegro5/allegro_image.h>
 
 Screen::Screen() : Object() {
+  al_set_new_display_flags(ALLEGRO_FULLSCREEN_WINDOW);
   display = al_create_display(SCREEN_H, SCREEN_W);
   al_init_image_addon();
 
@@ -21,6 +22,7 @@ Screen::Screen() : Object() {
   sy = windowHeight / (float)SCREEN_H;
   al_identity_transform(&t);
   al_scale_transform(&t, sx, sy);
+  al_use_transform(&t);
   // display = al_create_display(SCREEN_W, SCREEN_H);
 }
 Screen::~Screen() {
@@ -33,7 +35,7 @@ void Screen::draw() { al_flip_display(); }
 ALLEGRO_DISPLAY *Screen::getDisplay() { return display; }
 
 void Screen::fullscreen() {
-  al_use_transform(&t);
+
   al_set_display_flag(
       display, ALLEGRO_FULLSCREEN_WINDOW,
       !(al_get_display_flags(display) & ALLEGRO_FULLSCREEN_WINDOW));
