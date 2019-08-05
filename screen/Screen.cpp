@@ -10,8 +10,10 @@ Screen::Screen() : Object() {
 
   icon = al_load_bitmap("../assets/img/ico.png");
   al_convert_mask_to_alpha(icon, al_map_rgb(0, 255, 0));
-  // TODO: l'icona appare ma lo schermo resta nero. Il gioco funziona però!
-  // al_set_display_icon(display, icon);
+  // TODO: l'icona appare ma lo schermo resta nero. 
+  // Il gioco funziona però!
+  // Aggiornamento: su ubuntu funziona, sul mac no.
+  al_set_display_icon(display, icon);
 
   windowWidth = al_get_display_width(display);
   windowHeight = al_get_display_height(display);

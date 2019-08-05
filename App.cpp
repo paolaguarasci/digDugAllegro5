@@ -8,6 +8,7 @@ App::App() {
 
   al_init();
   al_install_keyboard();
+  al_init_primitives_addon();
   screen = new Screen();
   event_queue = al_create_event_queue();
   timer = al_create_timer(1 / FPS);
