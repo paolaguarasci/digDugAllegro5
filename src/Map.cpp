@@ -52,8 +52,8 @@ void Map::draw() {
 
 int Map::nextInDir(int pos_x, int pos_y, std::string dir) {
   Tile *tile = NULL;
-  int redDot_x;
-  int redDot_y;
+  int redDot_x = -1;
+  int redDot_y = -1;
 
   if (dir.compare("left") == 0) {
     redDot_x = (pos_x / 32) - 1;

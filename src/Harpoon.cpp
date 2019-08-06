@@ -78,14 +78,14 @@ void Harpoon::draw() {
     update();
   }
 }
-float Harpoon::getVelX() {}
-float Harpoon::getVelY() {}
-int Harpoon::getDimX() {}
-int Harpoon::getDimY() {}
-int Harpoon::getPosX() {}
-int Harpoon::getPosY() {}
-int Harpoon::getAzione() {}
-int Harpoon::getPosizione() {}
+float Harpoon::getVelX() { return vel_x; }
+float Harpoon::getVelY() { return vel_y; }
+int Harpoon::getDimX() { return dim_x; }
+int Harpoon::getDimY() { return dim_y; }
+int Harpoon::getPosX() { return pos_x; }
+int Harpoon::getPosY() { return pos_y; }
+int Harpoon::getAzione() { return azione; }
+int Harpoon::getPosizione() { return posizione; }
 void Harpoon::setLive(bool live) { isLive = live; }
 bool Harpoon::isColl(Entities *e) {
 
