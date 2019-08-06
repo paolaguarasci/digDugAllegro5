@@ -29,3 +29,5 @@ Temporary Items
 .vscode
 .build
 game
+*.o
+**/*.o
