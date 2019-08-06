@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "Entities.h"
 Player::Player() {
-  bitmap = al_load_bitmap("../assets/img/player.png");
+  bitmap = al_load_bitmap("assets/img/player.png");
   pos_x = 402;
   pos_y = 106;
   vel_x = 4;

@@ -1,7 +1,7 @@
 #include "App.h"
+#include "Map.h"
 #include "Object.h"
 #include "const.h"
-#include "map/Map.h"
 #include <allegro5/allegro_primitives.h>
 
 App::App() {

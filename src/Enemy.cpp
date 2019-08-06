@@ -1,6 +1,6 @@
 #include "Enemy.h"
 Enemy::Enemy() {
-  bitmap = al_load_bitmap("../assets/img/enemy.png");
+  bitmap = al_load_bitmap("assets/img/enemy.png");
   pos_x = 32 * 13;
   inizial_pos_x = pos_x;
   pos_y = SCREEN_H - (32 * 3) + 10;

@@ -2,8 +2,8 @@
 #define PLAYER_H
 
 // #include "../Map.h"
-#include "../const.h"
 #include "Entities.h"
+#include "const.h"
 #include <allegro5/allegro.h>
 #include <iostream>
 

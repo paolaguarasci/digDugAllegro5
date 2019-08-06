@@ -5,7 +5,7 @@
 Tile::Tile(int _tipo, float _pos_x, float _pos_y, int _x, int _y)
     : tipo(_tipo), dimx(32), dimy(32), pos_x(_pos_x), pos_y(_pos_y), x(_x),
       y(_y) {
-  img = al_load_bitmap("../assets/img/tileset.png");
+  img = al_load_bitmap("assets/img/tileset.png");
 }
 Tile::~Tile() { al_destroy_bitmap(img); }
 void Tile::draw() {

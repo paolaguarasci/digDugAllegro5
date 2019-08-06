@@ -1,8 +1,8 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
-#include "../const.h"
 #include "Entities.h"
+#include "const.h"
 #include <allegro5/allegro.h>
 #include <iostream>
 

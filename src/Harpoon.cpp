@@ -2,7 +2,7 @@
 #include <iostream>
 Harpoon::Harpoon() {
   gittata = 200;
-  bitmap = al_load_bitmap("../assets/img/harpoon.png");
+  bitmap = al_load_bitmap("assets/img/harpoon.png");
   dim_x = 30;
   dim_y = 5;
   isLive = false;

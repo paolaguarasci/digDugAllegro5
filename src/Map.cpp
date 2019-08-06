@@ -1,6 +1,6 @@
 #include "Map.h"
-#include "../Object.h"
-#include "../const.h"
+#include "Object.h"
+#include "const.h"
 #include <algorithm>
 #include <allegro5/allegro_image.h>
 #include <fstream>
@@ -10,7 +10,7 @@ Map::Map() { init(); }
 void Map::init() {
   std::ifstream inFile;
   int x;
-  inFile.open("../assets/map/00.map");
+  inFile.open("assets/map/00.map");
   if (!inFile) {
     std::cout << "Unable to open file";
     // exit(1); // terminate with error
