@@ -23,3 +23,6 @@ RIMOSSA!
 // toggle fullscreen
 al_set_display_flag(display, ALLEGRO_FULLSCREEN_WINDOW, !(al_get_display_flags(display) & ALLEGRO_FULLSCREEN_WINDOW));
 ```
+
+---
+test
