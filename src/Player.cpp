@@ -12,6 +12,10 @@ Player::Player() {
   posizione = 1;
   angolo = 0;
   score = 0;
+  lives = 3;
+  ID = 0;
+  type = PLAYER;
+  scala = 1;
 }
 
 void Player::destroy() { al_destroy_bitmap(bitmap); }
@@ -23,11 +27,20 @@ void Player::draw() {
   // al_draw_bitmap_region(bitmap, posizione * dim_x, azione * dim_y, dim_x,
   // dim_y,
   //                       pos_x, pos_y, 0);
-  al_draw_scaled_rotated_bitmap(tmp, 12, 17, pos_x, pos_y, 1, 1, angolo,
+  al_draw_scaled_rotated_bitmap(tmp, 12, 17, pos_x - dim_x / 2,
+                                pos_y - dim_y / 2, scala, scala, angolo,
                                 2 * flip);
 }
 
 void Player::update() {
+  if (pos_x > SCREEN_W)
+    pos_x = SCREEN_W;
+  if (pos_x < 0)
+    pos_x = 0;
+  if (pos_y > SCREEN_H)
+    pos_y = SCREEN_H;
+  if (pos_y < 0)
+    pos_y = 0;
   if (dir == DOWN && dir_prec == RIGHT) {
     while (((int)pos_x + 16) % 32 != 0) {
       pos_x++;

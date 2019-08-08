@@ -99,11 +99,11 @@ int App::Run(int argc, char *argv[]) {
       player->isCol(*it);
     }
 
-    // arma->isCol(enemy);
-    // if (!(enemy->getAlive())) {
-    //   // delete enemy;
-    //   obj.remove(enemy);
-    // }
+    arma->isCol(enemy);
+    if (!(enemy->getAlive())) {
+      // delete enemy;
+      obj.remove(enemy);
+    }
 
     mappa->scava(player->getPosX(), player->getPosY());
 

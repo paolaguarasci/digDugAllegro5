@@ -10,6 +10,8 @@
 
 class Object {
 protected:
+  int ID;
+  TYPE type;
   float pos_x;
   float pos_y;
   float vel_x;
@@ -62,11 +64,11 @@ public:
   void setDirPrec(DIREZIONE dir_prec) { Object::dir_prec = dir_prec; }
 
   bool getAlive() { return alive; }
-  void setAlive(bool alive){};
+  void setAlive(bool alive) { Object::alive = alive; };
 
   float getAngolo() { return angolo; }
   void setAngolo(float angolo) { Object::angolo = angolo; }
-
+  bool getCollidable() { return collidable; }
   bool isCol(Object *obj);
 };
 

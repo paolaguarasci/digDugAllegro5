@@ -9,7 +9,11 @@ void Tile::init(int _tipo, float _pos_x, float _pos_y, int _x, int _y) {
   x = _x;
   y = _y;
   img = al_load_bitmap("assets/img/tileset.png");
+  collidable = tipo > 0;
+  type = TILE;
+  ID = 99;
 }
+
 void Tile::destroy() { al_destroy_bitmap(img); }
 void Tile::draw() {
   al_draw_bitmap_region(img, 0 + (dim_x * tipo), 0, dim_x, dim_y, pos_x, pos_y,

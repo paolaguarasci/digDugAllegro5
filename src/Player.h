@@ -6,6 +6,7 @@
 class Player : public Object {
 private:
   int score;
+  int lives;
 
 public:
   Player();
@@ -16,6 +17,7 @@ public:
 
   int getScore() { return score; }
   void setScore(int score) { Player::score = score; }
+  int getLives() { return lives; }
 
   void moveUp();
   void moveDown();
