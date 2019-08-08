@@ -1,32 +1,28 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-// #include "../Map.h"
-#include "Entities.h"
-#include "const.h"
-#include <allegro5/allegro.h>
-#include <iostream>
+#include "Object.h"
 
-class Player : public Entities {
+class Player : public Object {
 private:
-  float angolo;
+  int score;
 
 public:
   Player();
-  ~Player();
   void init();
+  void destroy();
+  void update();
   void draw();
-  void update(int _pos_x, int _pos_y, int _azione, int _posizione);
-  float getVelX();
-  float getVelY();
-  int getDimX();
-  int getDimY();
-  int getPosX();
-  int getPosY();
-  void setAngolo(float);
-  int getAzione();
-  int getPosizione();
-  bool isColl(Entities *e);
+
+  int getScore() { return score; }
+  void setScore(int score) { Player::score = score; }
+
+  void moveUp();
+  void moveDown();
+  void moveLeft();
+  void moveRight();
+
+  void resetPos() { posizione = 1; }
 };
 
 #endif // PLAYER_H
