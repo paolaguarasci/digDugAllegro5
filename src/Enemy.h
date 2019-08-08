@@ -2,6 +2,7 @@
 #define ENEMY_H
 
 #include "Object.h"
+#include "Player.h"
 
 class Enemy : public Object {
 private:
@@ -14,6 +15,7 @@ public:
   void destroy();
   void draw();
   void update();
+  void insegui(Player *player);
 };
 
 #endif // ENEMY_H

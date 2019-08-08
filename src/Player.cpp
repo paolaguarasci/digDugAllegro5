@@ -16,6 +16,7 @@ Player::Player() {
   ID = 0;
   type = PLAYER;
   scala = 1;
+  dir = LEFT;
 }
 
 void Player::destroy() { al_destroy_bitmap(bitmap); }

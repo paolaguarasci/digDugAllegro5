@@ -36,15 +36,35 @@ void Enemy::draw() {
 }
 
 void Enemy::update() {
-  if (pos_x >= (inizial_pos_x + passi)) {
-    direzione = -1;
-    azione = 3;
-  } else if (pos_x <= (inizial_pos_x - passi)) {
-    direzione = 1;
-    azione = 1;
+  // if (pos_x >= (inizial_pos_x + passi)) {
+  //   direzione = -1;
+  //   azione = 3;
+  // } else if (pos_x <= (inizial_pos_x - passi)) {
+  //   direzione = 1;
+  //   azione = 1;
+  // }
+  // pos_x += (direzione * vel_x);
+  // posizione++;
+  // if (posizione > 2)
+  //   posizione = 0;
+}
+
+void Enemy::insegui(Player *player) {
+  /*
+    Movimento automatico del nemico, all'inseguimento del player.
+    - versione inziale: non tiene conto delle mattonelle nere
+    - prox fix: tenere conto della "strada migliore"
+    ...probabilmente in un prox refactoring lo sposto in update()...
+  */
+  if (pos_x != player->getPosX()) {
+    if (player->getPosX() > pos_x)
+      pos_x += vel_x;
+    else
+      pos_x -= vel_x;
   }
-  pos_x += (direzione * vel_x);
-  posizione++;
-  if (posizione > 2)
-    posizione = 0;
+  if (pos_y != player->getPosY())
+    if (player->getPosY() > pos_y)
+      pos_y += vel_y;
+    else
+      pos_y -= vel_y;
 }

@@ -66,7 +66,7 @@ int App::Run(int argc, char *argv[]) {
         break;
       }
     } else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
-      // player->resetPos();
+      player->resetPos();
       switch (ev.keyboard.keycode) {
       case ALLEGRO_KEY_UP:
         key[KEY_UP] = false;
@@ -104,7 +104,7 @@ int App::Run(int argc, char *argv[]) {
       // delete enemy;
       obj.remove(enemy);
     }
-
+    enemy->insegui(player);
     mappa->scava(player->getPosX(), player->getPosY());
 
     if (draw && al_is_event_queue_empty(event_queue)) {
