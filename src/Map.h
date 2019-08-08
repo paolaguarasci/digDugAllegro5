@@ -3,13 +3,10 @@
 
 #include "Object.h"
 #include "Tile.h"
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_image.h>
-#include <iostream>
+
+#include <fstream>
 #include <list>
-#include <string>
-#define MAP_FOLDER "assets/data/maps"
-enum DIREZIONE { UP, DOWN, RIGHT, LEFT };
+
 class Map : public Object {
 private:
   std::list<Tile *> tileset;
@@ -18,7 +15,8 @@ private:
 
 public:
   Map();
-  ~Map();
+
+  void destroy();
   void init();
   void draw();
   void update();

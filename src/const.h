@@ -1,12 +1,17 @@
-#define FPS 25.0
-#define SCREEN_W 512 // 32 * 16
-#define SCREEN_H 512 // 32 * 16
+#ifndef CONST_H
+#include <string>
+const int FPS = 25.0;
+const int SCREEN_W = 512; // 32 * 16
+const int SCREEN_H = 512; // 32 * 16
 
-#define running true
-#define redraw true
-#define reload false
+const bool running = true;
+const bool redraw = true;
+const bool reload = false;
 
-#define map_x 0
-#define map_y 0
-#define screen_width SCREEN_W
-#define screen_height SCREEN_H
+enum KEY { KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_SPACE };
+enum TYPE { PLAYER, ENEMY, TILE, OTHER };
+enum DIREZIONE { UP = -1, DOWN = 1, RIGHT = 1, LEFT = -1 };
+
+const std::string MAP_FOLDER = "assets/data/maps";
+
+#endif // CONTS_H

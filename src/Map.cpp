@@ -1,10 +1,5 @@
 #include "Map.h"
 #include "Object.h"
-#include "const.h"
-#include <algorithm>
-#include <allegro5/allegro_image.h>
-#include <fstream>
-#include <iostream>
 
 Map::Map() { init(); }
 void Map::init() {
@@ -26,14 +21,22 @@ void Map::init() {
   for (int n : data) {
     pos_x = 32 * k;
     pos_y = 32 * z;
-    if (n == 0)
-      tileset.push_back(new Tile(0, pos_x, pos_y, k, z));
-    if (n == 1)
-      tileset.push_back(new Tile(1, pos_x, pos_y, k, z));
-    if (n == 2)
-      tileset.push_back(new Tile(2, pos_x, pos_y, k, z));
-    if (n == 3)
-      tileset.push_back(new Tile(3, pos_x, pos_y, k, z));
+    if (n == 0) {
+      tileset.push_back(new Tile());
+      tileset.back()->init(0, pos_x, pos_y, k, z);
+    }
+    if (n == 1) {
+      tileset.push_back(new Tile());
+      tileset.back()->init(1, pos_x, pos_y, k, z);
+    }
+    if (n == 2) {
+      tileset.push_back(new Tile());
+      tileset.back()->init(2, pos_x, pos_y, k, z);
+    }
+    if (n == 3) {
+      tileset.push_back(new Tile());
+      tileset.back()->init(3, pos_x, pos_y, k, z);
+    }
     k++;
     if (k >= 16) {
       k = 0;
@@ -41,9 +44,12 @@ void Map::init() {
     }
   }
 }
-Map::~Map() {
-  for (Tile *t : tileset)
-    delete t;
+void Map::destroy() {
+  for (auto it = tileset.begin(); it != tileset.end();) {
+    (*it)->destroy();
+    delete (*it);
+    it = tileset.erase(it);
+  }
 }
 void Map::draw() {
   for (Tile *t : tileset)
