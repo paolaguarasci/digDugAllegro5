@@ -30,6 +30,12 @@ protected:
   DIREZIONE dir;
   DIREZIONE dir_prec;
 
+  int a_row;
+  int a_col;
+  int curr_frame;
+  int offsetAnimationX;
+  int offsetAnimationY;
+
   ALLEGRO_BITMAP *bitmap;
 
 public:
