@@ -21,7 +21,7 @@ public:
   void draw();
   void update();
   int nextInDir(int pos_x, int pos_y, std::string dir);
-  void scava(int pos_x, int pos_y);
+  void scava(int pos_x, int pos_y, DIREZIONE dir);
 };
 
 #endif // Map.h

@@ -18,8 +18,8 @@ App::App() {
   arma = new Harpoon();
   obj.push_back(mappa);
   obj.push_back(arma);
-  obj.push_back(player);
   obj.push_back(enemy);
+  obj.push_back(player);
   obj.push_back(screen);
 }
 
@@ -105,7 +105,7 @@ int App::Run(int argc, char *argv[]) {
       obj.remove(enemy);
     }
     enemy->insegui(player);
-    mappa->scava(player->getPosX(), player->getPosY());
+    mappa->scava(player->getPosX(), player->getPosY(), player->getDir());
 
     if (draw && al_is_event_queue_empty(event_queue)) {
       draw = false;

@@ -89,7 +89,7 @@ int Map::nextInDir(int pos_x, int pos_y, std::string dir) {
     return -1;
 }
 
-void Map::scava(int pos_x, int pos_y) {
+void Map::scava(int pos_x, int pos_y, DIREZIONE dir) {
   Tile *tile = NULL;
   for (Tile *t : tileset) {
     float areaX_a = t->getPosX();
@@ -102,9 +102,24 @@ void Map::scava(int pos_x, int pos_y) {
       tile = t;
     }
   }
-  if (tile != NULL)
+  if (tile != NULL) {
+
     // return tile->getTipo() == 0;
-    tile->setTipo(0);
+    switch (dir) {
+    case RIGHT:
+    case LEFT:
+      tile->setOverX(true);
+      break;
+    case UP:
+    case DOWN:
+      tile->setOverY(true);
+      break;
+    }
+  }
 }
 
-void Map::update() {}
+void Map::update() {
+  for (auto it = tileset.begin(); it != tileset.end(); ++it) {
+    (*it)->update();
+  }
+}
