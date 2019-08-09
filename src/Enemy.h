@@ -9,6 +9,7 @@ private:
   int inizial_pos_x;
   int passi;
   int direzione;
+  bool flip;
 
 public:
   Enemy();

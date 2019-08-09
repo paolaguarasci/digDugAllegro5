@@ -4,12 +4,11 @@ Player::Player() {
   bitmap = al_load_bitmap("assets/img/original.png");
   pos_x = 402;
   pos_y = 106;
-  vel_x = 2;
-  vel_y = 2;
+  vel_x = 7;
+  vel_y = 7;
   dim_x = 15;
   dim_y = 15;
-  a_col = 13;
-  a_row = 0;
+
   curr_frame = 0;
   score = 0;
   lives = 3;
@@ -17,8 +16,10 @@ Player::Player() {
   type = PLAYER;
   scala = 2;
   dir = LEFT;
-  offsetAnimationX = 0;
+  offsetAnimationX = 22;
   offsetAnimationY = 0;
+  a_col = 12;
+  a_row = 0;
 }
 
 void Player::destroy() { al_destroy_bitmap(bitmap); }
@@ -58,6 +59,7 @@ void Player::moveUp() {
   // } else {
   pos_y -= vel_y;
   // }
+
   dir_prec = (dir != DOWN && dir != UP ? dir : dir_prec);
 
   if (dir_prec == RIGHT) {
@@ -85,6 +87,7 @@ void Player::moveDown() {
   // } else {
   pos_y += vel_y;
   // }
+
   dir_prec = (dir != DOWN && dir != UP ? dir : dir_prec);
 
   if (dir_prec == RIGHT) {
