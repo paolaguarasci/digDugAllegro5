@@ -1,13 +1,13 @@
 #include "Player.h"
 
 Player::Player() {
-  bitmap = al_load_bitmap("assets/img/player.png");
+  bitmap = al_load_bitmap("assets/img/original.png");
   pos_x = 402;
   pos_y = 106;
-  vel_x = 4;
-  vel_y = 4;
-  dim_x = 24;
-  dim_y = 32;
+  vel_x = 2;
+  vel_y = 2;
+  dim_x = 15;
+  dim_y = 15;
   azione = 3;
   posizione = 1;
   angolo = 0;
@@ -15,7 +15,7 @@ Player::Player() {
   lives = 3;
   ID = 0;
   type = PLAYER;
-  scala = 1;
+  scala = 2;
   dir = LEFT;
 }
 
@@ -25,11 +25,7 @@ void Player::draw() {
   ALLEGRO_BITMAP *tmp = al_create_sub_bitmap(bitmap, posizione * dim_x,
                                              azione * dim_y, dim_x, dim_y);
   al_convert_mask_to_alpha(tmp, al_map_rgb(32, 156, 0));
-  // al_draw_bitmap_region(bitmap, posizione * dim_x, azione * dim_y, dim_x,
-  // dim_y,
-  //                       pos_x, pos_y, 0);
-  al_draw_scaled_rotated_bitmap(tmp, 12, 17, pos_x - dim_x / 2,
-                                pos_y - dim_y / 2, scala, scala, angolo,
+  al_draw_scaled_rotated_bitmap(tmp, 0, 0, pos_x, pos_y, scala, scala, angolo,
                                 2 * flip);
 }
 
@@ -42,49 +38,12 @@ void Player::update() {
     pos_y = SCREEN_H;
   if (pos_y < 0)
     pos_y = 0;
-  if (dir == DOWN && dir_prec == RIGHT) {
-    while (((int)pos_x + 16) % 32 != 0) {
-      pos_x++;
-    }
-  }
-  if (dir == UP && dir_prec == RIGHT) {
-    while (((int)pos_x + 16) % 32 != 0) {
-      pos_x++;
-    }
-  }
 
-  if (dir == DOWN && dir_prec == LEFT) {
-    while (((int)pos_x - 16) % 32 != 0) {
-      pos_x--;
-    }
-  }
-  if (dir == UP && dir_prec == LEFT) {
-    while (((int)pos_x - 16) % 32 != 0) {
-      pos_x--;
-    }
-  }
-
-  //////////////////////////////
-  if (dir == LEFT && dir_prec == DOWN) {
-    while (((int)pos_y + 16) % 32 != 0) {
-      pos_y++;
-    }
-  }
-  if (dir == LEFT && dir_prec == UP) {
-    while (((int)pos_y - 16) % 32 != 0) {
-      pos_y--;
-    }
-  }
-  if (dir == RIGHT == 0 && dir_prec == UP) {
-    while (((int)pos_y - 16) % 32 != 0) {
-      pos_y--;
-    }
-  }
-  if (dir == RIGHT == 0 && dir_prec == DOWN) {
-    while (((int)pos_y + 16) % 32 != 0) {
-      pos_y++;
-    }
-  }
+  // TODO:
+  // Devo fare in modo che si muova a blocchi perchè l'algoritmo di prima,
+  // per quanto impreciso, cmq funzionava ma usava l'operazione di modulo, che
+  // ha bisogno di dati interi per lavorare. Ora con le posizioni float non
+  // funziona.
 }
 
 void Player::moveUp() {
