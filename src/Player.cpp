@@ -4,8 +4,8 @@ Player::Player() {
   bitmap = al_load_bitmap("assets/img/original.png");
   pos_x = 467;
   pos_y = 71;
-  vel_x = 5;
-  vel_y = 5;
+  vel_x = 32;
+  vel_y = 32;
   dim_x = 15;
   dim_y = 15;
 
@@ -89,22 +89,22 @@ void Player::moveDown() {
   pos_y += vel_y;
   // }
 
-  dir_prec = (dir != DOWN && dir != UP ? dir : dir_prec);
+  // dir_prec = (dir != DOWN && dir != UP ? dir : dir_prec);
+  dir_prec = dir;
 
-  if (dir_prec == RIGHT) {
-    std::cout << "RIGHT\n";
-    offsetAnimationX = 0;
-    offsetAnimationY = 0;
-    a_col = 0;
-    a_row = 1;
-  }
-  if (dir_prec == LEFT) {
-    std::cout << "LEFT\n";
-    offsetAnimationX = 22;
-    offsetAnimationY = 0;
-    a_col = 12;
-    a_row = 1;
-  }
+  std::cout << "RIGHT\n";
+  offsetAnimationX = 0;
+  offsetAnimationY = 0;
+  a_col = 0;
+  a_row = 1;
+
+  // if (dir_prec == LEFT) {
+  //   std::cout << "LEFT\n";
+  //   offsetAnimationX = 22;
+  //   offsetAnimationY = 0;
+  //   a_col = 12;
+  //   a_row = 1;
+  // }
   curr_frame = (curr_frame == 1 ? 0 : 1);
   dir = DOWN;
 }

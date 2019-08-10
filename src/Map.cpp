@@ -81,8 +81,9 @@ int Map::nextInDir(int pos_x, int pos_y, std::string dir) {
     return -1;
 }
 
-void Map::scava(int pos_x, int pos_y, DIREZIONE dir) {
+void Map::scava(int pos_x, int pos_y, DIREZIONE dir, DIREZIONE dir_prec) {
   Tile *tile = NULL;
+  Tile *tilePrec = NULL;
   for (Tile *t : tileset) {
     float areaX_a = t->getPosX();
     float areaX_b = t->getPosX() + 32;
@@ -92,19 +93,77 @@ void Map::scava(int pos_x, int pos_y, DIREZIONE dir) {
     if (pos_y > areaY_a && pos_y < areaY_b && pos_x > areaX_a &&
         pos_x < areaX_b) {
       tile = t;
+      if (dir_prec == dir) {
+        switch (dir_prec) {
+        case RIGHT:
+          tilePrec = getTile(tile->getX() - 1, tile->getY());
+          break;
+        case LEFT:
+          tilePrec = getTile(tile->getX() + 1, tile->getY());
+          break;
+        case UP:
+          tilePrec = getTile(tile->getX(), tile->getY() + 1);
+          break;
+        case DOWN:
+          tilePrec = getTile(tile->getX(), tile->getY() - 1);
+          break;
+        }
+      } else {
+        if (dir_prec == LEFT && dir == UP)
+          tilePrec = getTile(tile->getX(), tile->getY() + 1);
+        if (dir_prec == LEFT && dir == DOWN)
+          tilePrec = getTile(tile->getX(), tile->getY() - 1);
+        if (dir_prec == RIGHT && dir == UP)
+          tilePrec = getTile(tile->getX(), tile->getY() + 1);
+        if (dir_prec == RIGHT && dir == DOWN)
+          tilePrec = getTile(tile->getX(), tile->getY() - 1);
+
+        if (dir_prec == UP && dir == LEFT)
+          tilePrec = getTile(tile->getX() + 1, tile->getY());
+        if (dir_prec == UP && dir == RIGHT)
+          tilePrec = getTile(tile->getX() - 1, tile->getY());
+        if (dir_prec == DOWN && dir == LEFT)
+          tilePrec = getTile(tile->getX() + 1, tile->getY());
+        if (dir_prec == DOWN && dir == RIGHT)
+          tilePrec = getTile(tile->getX() - 1, tile->getY());
+      }
     }
   }
-  if (tile != NULL && tile->getTipo() != -1) {
-
-    // return tile->getTipo() == 0;
+  if (tile != NULL && tile->getTipo() != -1 && tilePrec != NULL) {
+    if (dir == dir_prec) {
+      switch (dir_prec) {
+      case RIGHT:
+      case LEFT:
+        tilePrec->setOverX(true);
+        break;
+      case UP:
+      case DOWN:
+        tilePrec->setOverY(true);
+        break;
+      }
+    }
+    if (dir != dir_prec) {
+      if ((dir_prec == LEFT && dir == DOWN) || (dir_prec == UP && dir == RIGHT))
+        tilePrec->setCurva(0);
+      if ((dir_prec == LEFT && dir == UP) || (dir_prec == DOWN && dir == RIGHT))
+        tilePrec->setCurva(1);
+      if ((dir_prec == RIGHT && dir == DOWN) || (dir_prec == UP && dir == LEFT))
+        tilePrec->setCurva(2);
+      if ((dir_prec == RIGHT && dir == UP) || (dir_prec == DOWN && dir == LEFT))
+        tilePrec->setCurva(3);
+    }
     switch (dir) {
     case RIGHT:
+      tile->setLastR(true);
+      break;
     case LEFT:
-      tile->setOverX(true);
+      tile->setLastL(true);
       break;
     case UP:
+      tile->setLastU(true);
+      break;
     case DOWN:
-      tile->setOverY(true);
+      tile->setLastD(true);
       break;
     }
   }
@@ -114,4 +173,11 @@ void Map::update() {
   for (auto it = tileset.begin(); it != tileset.end(); ++it) {
     (*it)->update();
   }
+}
+
+Tile *Map::getTile(int x, int y) {
+  auto tile = find_if(tileset.begin(), tileset.end(), [x, y](Tile *a) {
+    return a->getX() == x && a->getY() == y;
+  });
+  return (*tile);
 }

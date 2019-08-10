@@ -11,6 +11,13 @@ private:
   bool over_x;
   bool over_y;
 
+  bool last_r;
+  bool last_d;
+  bool last_u;
+  bool last_l;
+
+  int curva;
+
 public:
   Tile();
   void init(int, float, float, int, int);
@@ -27,6 +34,13 @@ public:
 
   void setOverX(bool over_x) { Tile::over_x = over_x; }
   void setOverY(bool over_y) { Tile::over_y = over_y; }
+
+  void setLastR(bool last_r) { Tile::last_r = last_r; }
+  void setLastD(bool last_d) { Tile::last_d = last_d; }
+  void setLastU(bool last_u) { Tile::last_u = last_u; }
+  void setLastL(bool last_l) { Tile::last_l = last_l; }
+
+  void setCurva(int curva) { Tile::curva = curva; }
 };
 
 #endif // TILE_H

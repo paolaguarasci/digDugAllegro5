@@ -105,7 +105,8 @@ int App::Run(int argc, char *argv[]) {
       obj.remove(enemy);
     }
     enemy->insegui(player);
-    mappa->scava(player->getPosX(), player->getPosY(), player->getDir());
+    mappa->scava(player->getPosX(), player->getPosY(), player->getDir(),
+                 player->getDirPrec());
 
     if (draw && al_is_event_queue_empty(event_queue)) {
       draw = false;

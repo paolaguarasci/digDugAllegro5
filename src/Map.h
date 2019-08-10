@@ -21,7 +21,8 @@ public:
   void draw();
   void update();
   int nextInDir(int pos_x, int pos_y, std::string dir);
-  void scava(int pos_x, int pos_y, DIREZIONE dir);
+  void scava(int pos_x, int pos_y, DIREZIONE dir, DIREZIONE dir_prec);
+  Tile *getTile(int x, int y);
 };
 
 #endif // Map.h
