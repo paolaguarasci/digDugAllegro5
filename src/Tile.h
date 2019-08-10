@@ -5,8 +5,6 @@ class Tile : public Object {
 private:
   int tipo;
 
-  ALLEGRO_BITMAP *img;
-
   int x;
   int y;
 

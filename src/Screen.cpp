@@ -7,7 +7,10 @@ Screen::Screen() : Object() {
 }
 void Screen::destroy() { al_destroy_display(display); }
 
-void Screen::draw() { al_flip_display(); }
+void Screen::draw() {
+  al_flip_display();
+  al_clear_to_color(al_map_rgb(0, 0, 0));
+}
 
 void Screen::fullscreen() {
   al_set_display_flag(

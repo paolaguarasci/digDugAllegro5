@@ -1,7 +1,10 @@
 #include "Map.h"
 #include "Object.h"
 
-Map::Map() { init(); }
+Map::Map() {
+  bitmap = al_load_bitmap("assets/img/terrain.png");
+  init();
+}
 void Map::init() {
   std::ifstream inFile;
   int x;
@@ -21,22 +24,9 @@ void Map::init() {
   for (int n : data) {
     pos_x = 32 * k;
     pos_y = 32 * z;
-    if (n == 0) {
-      tileset.push_back(new Tile());
-      tileset.back()->init(0, pos_x, pos_y, k, z);
-    }
-    if (n == 1) {
-      tileset.push_back(new Tile());
-      tileset.back()->init(1, pos_x, pos_y, k, z);
-    }
-    if (n == 2) {
-      tileset.push_back(new Tile());
-      tileset.back()->init(2, pos_x, pos_y, k, z);
-    }
-    if (n == 3) {
-      tileset.push_back(new Tile());
-      tileset.back()->init(3, pos_x, pos_y, k, z);
-    }
+    std::cout << n << " ";
+    tileset.push_back(new Tile());
+    tileset.back()->init(n, pos_x, pos_y, k, z);
     k++;
     if (k >= 16) {
       k = 0;
@@ -52,6 +42,8 @@ void Map::destroy() {
   }
 }
 void Map::draw() {
+  ALLEGRO_BITMAP *tmp = al_create_sub_bitmap(bitmap, 0, 8, 96, 192);
+  al_draw_scaled_rotated_bitmap(tmp, 0, 0, 0, 32 * 3, 6, 2.5, 0, 0);
   for (Tile *t : tileset)
     t->draw();
 }
@@ -102,7 +94,7 @@ void Map::scava(int pos_x, int pos_y, DIREZIONE dir) {
       tile = t;
     }
   }
-  if (tile != NULL) {
+  if (tile != NULL && tile->getTipo() != -1) {
 
     // return tile->getTipo() == 0;
     switch (dir) {

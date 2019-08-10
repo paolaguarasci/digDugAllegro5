@@ -2,10 +2,10 @@
 
 Player::Player() {
   bitmap = al_load_bitmap("assets/img/original.png");
-  pos_x = 402;
-  pos_y = 106;
-  vel_x = 32;
-  vel_y = 32;
+  pos_x = 467;
+  pos_y = 71;
+  vel_x = 5;
+  vel_y = 5;
   dim_x = 15;
   dim_y = 15;
 
@@ -14,7 +14,7 @@ Player::Player() {
   lives = 3;
   ID = 0;
   type = PLAYER;
-  scala = 2;
+  scala = 1.5;
   dir = LEFT;
   offsetAnimationX = 22;
   offsetAnimationY = 0;
@@ -33,6 +33,7 @@ void Player::draw() {
 }
 
 void Player::update() {
+  std::cout << pos_x << " " << pos_y << "\n";
   if (pos_x > SCREEN_W)
     pos_x = SCREEN_W;
   if (pos_x < 0)
