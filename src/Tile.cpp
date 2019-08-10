@@ -22,8 +22,7 @@ void Tile::destroy() {
     al_destroy_bitmap(bitmap);
 }
 void Tile::draw() {
-
-  al_convert_mask_to_alpha(bitmap, al_map_rgb(128, 255, 0));
+  // al_convert_mask_to_alpha(bitmap, al_map_rgb(128, 255, 0));
   al_draw_bitmap_region(bitmap, 0 + (dim_x * tipo), 200, dim_x, dim_y, pos_x,
                         pos_y, 0);
 }
