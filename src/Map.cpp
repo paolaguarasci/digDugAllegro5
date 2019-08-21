@@ -48,31 +48,38 @@ void Map::draw() {
     t->draw();
 }
 
-// int Map::nextInDir(int pos_x, int pos_y, DIREZIONE dir, DIREZIONE dir_prec) {
-  // Tile *tile = NULL;
-  // int redDot_x = -1;
-  // int redDot_y = -1;
+int Map::nextInDir(int pos_x, int pos_y, std::string dir) {
+  Tile *tile = NULL;
+  int redDot_x = -1;
+  int redDot_y = -1;
 
-  // if (dir == UP)
-  //   tile = getTile(pos_x / 32, pos_y / 32 + 1);
-  // if (dir == DOWN)
-  //   tile = getTile(pos_x / 32, pos_y / 32 - 1);
-  // if (dir == UP)
-  //   tile = getTile(pos_x / 32, pos_y / 32 + 1);
-  // if (dir == DOWN)
-  //   tile = getTile(pos_x / 32, pos_y / 32 - 1);
+  if (dir.compare("left") == 0) {
+    redDot_x = (pos_x / 32) - 1;
+    redDot_y = (pos_y / 32);
 
-  // std::cout << redDot_x << " " << redDot_y << "\n";
-  // for (Tile *t : tileset) {
-  //   if (t->getX() == redDot_x && t->getY() == redDot_y) {
-  //     tile = t;
-  //   }
-  // }
-  // if (tile != NULL)
-  //   return tile->getTipo();
-  // else
-  //   return -1;
-// }
+  } else if (dir.compare("up") == 0) {
+    redDot_x = (pos_x / 32);
+    redDot_y = (pos_y / 32) - 1;
+
+  } else if (dir.compare("right") == 0) {
+    redDot_x = (pos_x / 32) + 1;
+    redDot_y = (pos_y / 32);
+
+  } else if (dir.compare("down") == 0) {
+    redDot_x = (pos_x / 32);
+    redDot_y = (pos_y / 32) + 1;
+  }
+  std::cout << redDot_x << " " << redDot_y << "\n";
+  for (Tile *t : tileset) {
+    if (t->getX() == redDot_x && t->getY() == redDot_y) {
+      tile = t;
+    }
+  }
+  if (tile != NULL)
+    return tile->getTipo();
+  else
+    return -1;
+}
 
 void Map::scava(int pos_x, int pos_y, DIREZIONE dir, DIREZIONE dir_prec) {
   Tile *tile = NULL;
