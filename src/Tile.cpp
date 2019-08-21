@@ -43,16 +43,16 @@ void Tile::update() {
     tipo = 1;
   else if (last_l)
     tipo = 4;
-  if (!over_x && !over_y && curva != -1) {
-    over_x = false;
-    over_y = false;
-    tipo = curva + 7;
-  }
   if (over_x && !over_y) {
     tipo = 6;
   } else if (!over_x && over_y) {
     tipo = 5;
   } else if (over_x && over_x) {
     tipo = 0;
+  }
+  if (!over_x && !over_y && curva != -1) {
+    // over_x = false;
+    // over_y = false;
+    tipo = curva + 7;
   }
 }
