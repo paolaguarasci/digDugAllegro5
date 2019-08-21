@@ -1,8 +1,10 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
+#include "Map.h"
 #include "Object.h"
 #include "Player.h"
+#include <cmath>
 
 class Enemy : public Object {
 private:
@@ -16,7 +18,8 @@ public:
   void destroy();
   void draw();
   void update();
-  void insegui(Player *player);
+  void vola(Player *player, Map *mappa);
+  void insegui(Player *player, Map *mappa);
 };
 
 #endif // ENEMY_H

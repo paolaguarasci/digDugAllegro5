@@ -104,7 +104,7 @@ int App::Run(int argc, char *argv[]) {
       // delete enemy;
       obj.remove(enemy);
     }
-    enemy->insegui(player);
+    enemy->insegui(player, mappa);
     mappa->scava(player->getPosX(), player->getPosY(), player->getDir(),
                  player->getDirPrec());
 
