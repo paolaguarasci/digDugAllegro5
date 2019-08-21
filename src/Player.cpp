@@ -34,13 +34,13 @@ void Player::draw() {
 
 void Player::update() {
   std::cout << pos_x << " " << pos_y << "\n";
-  if (pos_x > SCREEN_W)
-    pos_x = SCREEN_W;
-  if (pos_x < 0)
+  if (pos_x >= SCREEN_W)
+    pos_x = SCREEN_W - dim_x;
+  if (pos_x <= 0)
     pos_x = 0;
-  if (pos_y > SCREEN_H)
-    pos_y = SCREEN_H;
-  if (pos_y < 0)
+  if (pos_y >= SCREEN_H)
+    pos_y = SCREEN_H - dim_y;
+  if (pos_y <= 0)
     pos_y = 0;
 
   // TODO:
