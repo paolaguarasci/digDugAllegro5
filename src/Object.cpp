@@ -25,7 +25,7 @@ bool Object::isCol(Object *obj) {
       // no collision
       return false;
     }
-    std::cout << "Collisione!" << std::endl;
+    // std::cout << "Collisione!" << std::endl;
     obj->setAlive(false);
     // collision
     return true;

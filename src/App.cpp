@@ -5,8 +5,8 @@ App::App() {
   al_install_keyboard();
   al_init_primitives_addon();
 
-  screen = new Screen();
-
+  screen = new GestoreSchermi();
+  screen->setState(LOAD);
   timer = new Timer();
   event_queue = al_create_event_queue();
   al_register_event_source(event_queue, al_get_keyboard_event_source());
@@ -24,7 +24,12 @@ App::App() {
 }
 
 int App::Run(int argc, char *argv[]) {
+
   timer->start();
+  screen->draw();
+  al_rest(6);
+  screen->setState(GAME);
+
   while (!doexit) {
     ALLEGRO_EVENT ev;
     al_wait_for_event(event_queue, &ev);
@@ -107,7 +112,6 @@ int App::Run(int argc, char *argv[]) {
     enemy->insegui(player, mappa);
     mappa->scava(player->getPosX(), player->getPosY(), player->getDir(),
                  player->getDirPrec());
-
     if (draw && al_is_event_queue_empty(event_queue)) {
       draw = false;
       for (Object *o : obj)

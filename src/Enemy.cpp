@@ -126,7 +126,7 @@ void Enemy::insegui(Player *player, Map *mappa) {
     direzione = -1;
     break;
   }
-  std::cout << "direzione " << direzione << "\n";
+  // std::cout << "direzione " << direzione << "\n";
 }
 
 void Enemy::vola(Player *player, Map *mappa) {

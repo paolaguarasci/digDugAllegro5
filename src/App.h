@@ -2,11 +2,11 @@
 #define APP_H
 
 #include "Enemy.h"
+#include "GestoreSchermi.h"
 #include "Harpoon.h"
 #include "Map.h"
 #include "Object.h"
 #include "Player.h"
-#include "Screen.h"
 #include "Timer.h"
 
 #include <iostream>
@@ -24,7 +24,7 @@ private:
   Map *mappa = NULL;
   Player *player = NULL;
   Enemy *enemy = NULL;
-  Screen *screen = NULL;
+  GestoreSchermi *screen = NULL;
   Harpoon *arma;
   Timer *timer;
 
