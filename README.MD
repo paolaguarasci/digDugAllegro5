@@ -9,11 +9,12 @@ RIMOSSA!
 
 ### TODO
 
-- [ ] sistemare la gerarchia delle classi entities, enemy e player in modo che ci sia coerenza;
+- [x] ~~sistemare la gerarchia delle classi entities, enemy e player in modo che ci sia coerenza~~
 - [ ] fullscreen
-- [ ] mappa corretta
+- [ ] ~~mappa corretta~~ troppo pensante con le trasparenze, risolvere!
 - [ ] collisioni con la mappa
-- [ ] arma
+- [ ] ~~arma~~
+- [ ] ai nemica (insegue ma va rivista)
 
 ---
 
@@ -25,4 +26,3 @@ al_set_display_flag(display, ALLEGRO_FULLSCREEN_WINDOW, !(al_get_display_flags(d
 ```
 
 ---
-test
