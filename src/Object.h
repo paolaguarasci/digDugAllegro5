@@ -3,8 +3,10 @@
 #include "const.h"
 #include <algorithm>
 #include <allegro5/allegro.h>
+#include <allegro5/allegro_font.h>
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_primitives.h>
+#include <allegro5/allegro_ttf.h>
 #include <iostream>
 #include <string>
 
@@ -36,7 +38,7 @@ protected:
   int offsetAnimationX;
   int offsetAnimationY;
 
-  ALLEGRO_BITMAP *bitmap;
+  ALLEGRO_BITMAP *bitmap = NULL;
 
 public:
   Object();

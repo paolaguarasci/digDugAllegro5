@@ -27,7 +27,6 @@ int App::Run(int argc, char *argv[]) {
 
   timer->start();
   screen->draw();
-  al_rest(6);
   screen->setState(GAME);
 
   while (!doexit) {

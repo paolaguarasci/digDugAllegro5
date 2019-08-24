@@ -5,6 +5,7 @@
 class End : public Object {
 private:
   ALLEGRO_DISPLAY *display;
+  ALLEGRO_FONT *font46 = NULL;
 
 public:
   End();

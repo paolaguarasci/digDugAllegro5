@@ -1,10 +1,18 @@
 #include "GestoreSchermi.h"
 
 GestoreSchermi::GestoreSchermi() {
+  al_init_font_addon();
+  al_init_ttf_addon();
   stato = LOAD;
   currentScreen = new Splash();
 }
-void GestoreSchermi::destroy() { currentScreen->destroy(); }
+
+void GestoreSchermi::destroy() {
+  currentScreen->destroy();
+  al_shutdown_font_addon();
+  if (bitmap != NULL)
+    al_destroy_bitmap(bitmap);
+}
 
 void GestoreSchermi::draw() { currentScreen->draw(); }
 

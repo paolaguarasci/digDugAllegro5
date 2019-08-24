@@ -5,6 +5,7 @@
 class Splash : public Object {
 private:
   ALLEGRO_DISPLAY *display;
+  int vel;
 
 public:
   Splash();
