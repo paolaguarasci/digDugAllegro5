@@ -1,6 +1,6 @@
 #include "Splash.h"
 
-Splash::Splash() : Object() {
+Splash::Splash() {
   al_init_image_addon();
   vel = 1;
   display = al_create_display(SCREEN_H, SCREEN_W);
