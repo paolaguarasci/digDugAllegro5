@@ -1,9 +1,11 @@
 #include "Enemy.h"
-Enemy::Enemy() {
+Enemy::Enemy(int x, int y) {
   bitmap = al_load_bitmap("assets/img/original.png");
-  pos_x = 32 * 12;
+  pos_x = x;
+  pos_y = y;
+  // pos_x = 32 * 12;
   inizial_pos_x = pos_x;
-  pos_y = SCREEN_H - (32 * 4);
+  // pos_y = SCREEN_H - (32 * 4);
   vel_x = 2;
   vel_y = 2;
   dim_x = 15;
