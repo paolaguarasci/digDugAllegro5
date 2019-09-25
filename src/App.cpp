@@ -11,20 +11,24 @@ App::App() {
   event_queue = al_create_event_queue();
   al_register_event_source(event_queue, al_get_keyboard_event_source());
   timer->addToEventQueue(event_queue);
-
+  modtimer_time = FPS * 60;
   mappa = new Map();
   player = new Player();
+
   enemy1 = new Enemy(300, 400);
-    enemy2 = new Enemy(200, 345);
-      enemy3 = new Enemy(100, 200);
+  enemy2 = new Enemy(200, 345);
+  enemy3 = new Enemy(100, 200);
+
+  infoMsg = new Infomsg();
 
   arma = new Harpoon();
   obj.push_back(mappa);
   obj.push_back(arma);
   obj.push_back(enemy1);
-    obj.push_back(enemy2);
-      obj.push_back(enemy3);
+  obj.push_back(enemy2);
+  obj.push_back(enemy3);
   obj.push_back(player);
+  obj.push_back(infoMsg);
   obj.push_back(screen);
 }
 
@@ -92,6 +96,9 @@ int App::Run(int argc, char *argv[]) {
       case ALLEGRO_KEY_SPACE:
         key[KEY_SPACE] = false;
         break;
+      case ALLEGRO_KEY_T:
+        modTimer = true;
+        break;
       case ALLEGRO_KEY_ESCAPE:
         doexit = true;
         break;
@@ -128,7 +135,7 @@ int App::Run(int argc, char *argv[]) {
     }
     enemy3->insegui(player, mappa);
     // Fine schifezza
-
+    infoMsg->setPti(player->getScore());
     mappa->scava(player->getPosX(), player->getPosY(), player->getDir(),
                  player->getDirPrec());
     if (draw && al_is_event_queue_empty(event_queue)) {
@@ -136,6 +143,12 @@ int App::Run(int argc, char *argv[]) {
       for (Object *o : obj)
         o->draw();
     }
+    if(modTimer && modtimer_time > 0) {
+      std::cout<< "Restano: " << modtimer_time / 60 << " secondi"<< std::endl;
+      modtimer_time--;
+      infoMsg->setTime(modtimer_time/FPS);
+    }
+    if(modtimer_time == 0 && modTimer) doexit = true;
   }
   doexit = false;
   std::cout << "Esco dal loop";

@@ -1,6 +1,6 @@
 #ifndef CONST_H
 #include <string>
-const int FPS = 25.0;
+const int FPS = 30.0;
 const int SCREEN_W = 512; // 32 * 16
 const int SCREEN_H = 512; // 32 * 16
 
