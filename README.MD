@@ -11,11 +11,11 @@ RIMOSSA
 as
 - [x] ~~sistemare la gerarchia delle classi entities, enemy e player in modo che ci sia coerenza~~
 - [ ] fullscreen
-- [ ] ~~mappa corretta~~ troppo pensante con le trasparenze, risolvere!
-- [ ] collisioni con la mappa
-- [ ] ~~arma~~
-- [ ] ai nemica (insegue ma va rivista)
-
+- [X] ~~mappa corretta~~ troppo pensante con le trasparenze, risolvere!
+- [X] collisioni con la mappa
+- [X] ~~arma~~
+- [X] ai nemica (insegue ma va rivista)
+- [ ] menu mod a tempo
 ---
 
 **fullscreen** queste righe di codice fanno un simpaticissimo toggle
