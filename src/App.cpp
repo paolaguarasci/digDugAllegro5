@@ -107,7 +107,8 @@ int App::Run(int argc, char *argv[]) {
          ++it) {
       player->isCol(*it);
     }
-// TODO: Modificare assolutamente questo schifezza!
+    
+    // TODO: Modificare assolutamente questo schifezza!
     arma->isCol(enemy1);
     arma->isCol(enemy2);
     arma->isCol(enemy3);
@@ -126,7 +127,8 @@ int App::Run(int argc, char *argv[]) {
       obj.remove(enemy3);
     }
     enemy3->insegui(player, mappa);
-// Fine schifezza
+    // Fine schifezza
+
     mappa->scava(player->getPosX(), player->getPosY(), player->getDir(),
                  player->getDirPrec());
     if (draw && al_is_event_queue_empty(event_queue)) {
@@ -135,6 +137,20 @@ int App::Run(int argc, char *argv[]) {
         o->draw();
     }
   }
+  doexit = false;
+  std::cout << "Esco dal loop";
+  screen->setState(DEAD);
+  while(!doexit) {
+    ALLEGRO_EVENT ev;
+    al_wait_for_event(event_queue, &ev);
+    if (ev.type == ALLEGRO_EVENT_KEY_UP && ev.keyboard.keycode == ALLEGRO_KEY_ESCAPE) {
+      std::cout << "Ho premuto ESC!\n";
+      doexit = true;
+    }
+    screen->update();
+    screen->draw();
+  }
+
   return 0;
 }
 

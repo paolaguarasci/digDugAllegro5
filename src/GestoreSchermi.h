@@ -22,6 +22,7 @@ public:
     std::cout << "\n" << oldStato << " " << stato << "\n";
   }
   STATE getState() { return stato; }
+  
 };
 
 #endif // GESTORESCHERMI_H
