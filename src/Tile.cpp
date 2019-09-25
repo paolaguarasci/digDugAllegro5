@@ -9,7 +9,7 @@ void Tile::init(int _tipo, float _pos_x, float _pos_y, int _x, int _y) {
   pos_y = _pos_y;
   x = _x;
   y = _y;
-  bitmap = al_load_bitmap("assets/img/terrain.png");
+  bitmap = al_load_bitmap("assets/img/terrain_alpha.png");
   collidable = tipo > 0;
   type = TILE;
   ID = 99;
@@ -28,11 +28,7 @@ void Tile::destroy() {
     al_destroy_bitmap(bitmap);
 }
 void Tile::draw() {
-  // TODO: RALLENTA DRAMMATICAMENTE LE PRESTAZIONI, RISULTA INGIOCABILE
-  // al_convert_mask_to_alpha(bitmap, al_map_rgb(128, 255, 0));
-
-  al_draw_bitmap_region(bitmap, 0 + (dim_x * tipo), 200, dim_x, dim_y, pos_x,
-                        pos_y, 0);
+  al_draw_bitmap_region(bitmap, 0 + (dim_x * tipo), 200, dim_x, dim_y, pos_x, pos_y, 0);
 }
 void Tile::update() {
   if (last_r)
