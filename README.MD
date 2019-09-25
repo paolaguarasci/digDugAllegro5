@@ -8,7 +8,7 @@ RIMOSSA
 ---
 
 ### TODO
-
+as
 - [x] ~~sistemare la gerarchia delle classi entities, enemy e player in modo che ci sia coerenza~~
 - [ ] fullscreen
 - [ ] ~~mappa corretta~~ troppo pensante con le trasparenze, risolvere!
