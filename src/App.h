@@ -37,7 +37,7 @@ private:
   Infomsg* infoMsg = NULL;
 
   std::list<Object *> obj;
-
+  std::list<Enemy *> enemy;
 public:
   App();
   ~App();

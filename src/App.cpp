@@ -1,6 +1,7 @@
 #include "App.h"
 
 App::App() {
+  srand(time(0));
   al_init();
   al_install_keyboard();
   al_init_primitives_addon();
@@ -22,6 +23,7 @@ App::App() {
   infoMsg = new Infomsg();
 
   arma = new Harpoon();
+  
   obj.push_back(mappa);
   obj.push_back(arma);
   obj.push_back(enemy1);
@@ -116,14 +118,15 @@ int App::Run(int argc, char *argv[]) {
     }
     
     // TODO: Modificare assolutamente questo schifezza!
-    arma->isCol(enemy1);
-    arma->isCol(enemy2);
-    arma->isCol(enemy3);
+    if(arma->isCol(enemy1)) player->setScore(30);
+    if(arma->isCol(enemy2)) player->setScore(30);
+    if(arma->isCol(enemy3)) player->setScore(30);
+    
     if (!(enemy1->getAlive())) {
       // delete enemy;
       obj.remove(enemy1);
     }
-    enemy2->insegui(player, mappa);
+    enemy1->insegui(player, mappa);
         if (!(enemy2->getAlive())) {
       // delete enemy;
       obj.remove(enemy2);

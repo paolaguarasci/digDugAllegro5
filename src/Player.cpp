@@ -4,8 +4,8 @@ Player::Player() {
   bitmap = al_load_bitmap("assets/img/original.png");
   pos_x = 467;
   pos_y = 71;
-  vel_x = 32;
-  vel_y = 32;
+  vel_x = 7;
+  vel_y = 7;
   dim_x = 15;
   dim_y = 15;
 

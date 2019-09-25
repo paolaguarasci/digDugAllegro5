@@ -1,5 +1,6 @@
 #include "Enemy.h"
 Enemy::Enemy(int x, int y) {
+  ID = rand() % 100000; 
   bitmap = al_load_bitmap("assets/img/original.png");
   pos_x = x;
   pos_y = y;

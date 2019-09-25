@@ -25,6 +25,7 @@ public:
   void moveRight();
 
   void resetPos() { posizione = 1; }
+
 };
 
 #endif // PLAYER_H

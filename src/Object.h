@@ -9,7 +9,7 @@
 #include <allegro5/allegro_ttf.h>
 #include <iostream>
 #include <string>
-
+#include <math.h>
 class Object {
 protected:
   int ID;
@@ -78,6 +78,11 @@ public:
   void setAngolo(float angolo) { Object::angolo = angolo; }
   bool getCollidable() { return collidable; }
   bool isCol(Object *obj);
+
+  bool isEqual( Object lhs, Object rhs )
+{
+    return (rhs.ID == lhs.ID);
+}
 };
 
 #endif // OBJECT_H
