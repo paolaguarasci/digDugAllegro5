@@ -14,11 +14,16 @@ App::App() {
 
   mappa = new Map();
   player = new Player();
-  enemy = new Enemy();
+  enemy1 = new Enemy(300, 400);
+    enemy2 = new Enemy(200, 345);
+      enemy3 = new Enemy(100, 200);
+
   arma = new Harpoon();
   obj.push_back(mappa);
   obj.push_back(arma);
-  obj.push_back(enemy);
+  obj.push_back(enemy1);
+    obj.push_back(enemy2);
+      obj.push_back(enemy3);
   obj.push_back(player);
   obj.push_back(screen);
 }
@@ -102,13 +107,28 @@ int App::Run(int argc, char *argv[]) {
          ++it) {
       player->isCol(*it);
     }
-
-    arma->isCol(enemy);
-    if (!(enemy->getAlive())) {
+    
+    // TODO: Modificare assolutamente questo schifezza!
+    arma->isCol(enemy1);
+    arma->isCol(enemy2);
+    arma->isCol(enemy3);
+    if (!(enemy1->getAlive())) {
       // delete enemy;
-      obj.remove(enemy);
+      obj.remove(enemy1);
     }
-    enemy->insegui(player, mappa);
+    enemy2->insegui(player, mappa);
+        if (!(enemy2->getAlive())) {
+      // delete enemy;
+      obj.remove(enemy2);
+    }
+    enemy2->insegui(player, mappa);
+        if (!(enemy3->getAlive())) {
+      // delete enemy;
+      obj.remove(enemy3);
+    }
+    enemy3->insegui(player, mappa);
+    // Fine schifezza
+
     mappa->scava(player->getPosX(), player->getPosY(), player->getDir(),
                  player->getDirPrec());
     if (draw && al_is_event_queue_empty(event_queue)) {
@@ -117,6 +137,20 @@ int App::Run(int argc, char *argv[]) {
         o->draw();
     }
   }
+  doexit = false;
+  std::cout << "Esco dal loop";
+  screen->setState(DEAD);
+  while(!doexit) {
+    ALLEGRO_EVENT ev;
+    al_wait_for_event(event_queue, &ev);
+    if (ev.type == ALLEGRO_EVENT_KEY_UP && ev.keyboard.keycode == ALLEGRO_KEY_ESCAPE) {
+      std::cout << "Ho premuto ESC!\n";
+      doexit = true;
+    }
+    screen->update();
+    screen->draw();
+  }
+
   return 0;
 }
 

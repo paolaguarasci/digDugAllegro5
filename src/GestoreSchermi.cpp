@@ -19,7 +19,7 @@ void GestoreSchermi::draw() { currentScreen->draw(); }
 void GestoreSchermi::update() {
   if (oldStato != stato) {
     oldStato = stato;
-    // std::cout << oldStato << " " << stato << "\n";
+    std::cout << oldStato << " " << stato << "\n";
     currentScreen->destroy();
     switch (stato) {
     case LOAD:
@@ -32,6 +32,7 @@ void GestoreSchermi::update() {
       break;
     case DEAD:
       currentScreen = new End();
+      std::cout << "DEAD\n";
       break;
 
     default:

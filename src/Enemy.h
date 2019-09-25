@@ -14,7 +14,7 @@ private:
   bool flip;
 
 public:
-  Enemy();
+  Enemy(int, int);
   void destroy();
   void draw();
   void update();

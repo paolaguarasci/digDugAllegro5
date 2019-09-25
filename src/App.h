@@ -23,7 +23,10 @@ private:
 
   Map *mappa = NULL;
   Player *player = NULL;
-  Enemy *enemy = NULL;
+  Enemy *enemy1 = NULL;
+    Enemy *enemy2 = NULL;
+      Enemy *enemy3 = NULL;
+
   GestoreSchermi *screen = NULL;
   Harpoon *arma;
   Timer *timer;
