@@ -5,6 +5,7 @@ GestoreSchermi::GestoreSchermi() {
   al_init_ttf_addon();
   stato = LOAD;
   currentScreen = new Splash();
+  p = -1;
 }
 
 void GestoreSchermi::destroy() {
@@ -35,7 +36,7 @@ void GestoreSchermi::update() {
       std::cout << "GAME\n";
       break;
     case DEAD:
-      currentScreen = new End();
+      currentScreen = new End(p);
       std::cout << "DEAD\n";
       break;
 

@@ -27,7 +27,8 @@ protected:
   bool alive;
   bool collidable;
 
-int mod;
+  int mod;
+
 
   float angolo;
   float scala;

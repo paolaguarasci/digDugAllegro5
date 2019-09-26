@@ -11,7 +11,7 @@ private:
   Object *currentScreen;
   STATE stato;
   STATE oldStato;
-
+  int p;
 public:
   GestoreSchermi();
   void destroy();
@@ -28,6 +28,10 @@ public:
     if(stato == MENU) {
       currentScreen->setMod(m);
     }
+  }
+
+  void setPunti(int punti) {
+    p = punti;
   }
 };
 

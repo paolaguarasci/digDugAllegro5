@@ -182,8 +182,10 @@ int App::Run(int argc, char *argv[]) {
   }
   doexit = false;
   std::cout << "Esco dal loop";
+  std::cout << "Punti alla fine.. " << player->getScore() << std::endl;
   screen->setState(DEAD);
   while(!doexit) {
+  screen->setPunti(player->getScore());
     ALLEGRO_EVENT ev;
     al_wait_for_event(event_queue, &ev);
     if (ev.type == ALLEGRO_EVENT_KEY_UP && ev.keyboard.keycode == ALLEGRO_KEY_ESCAPE) {
