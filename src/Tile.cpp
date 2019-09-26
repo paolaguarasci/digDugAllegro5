@@ -49,7 +49,7 @@ void Tile::update() {
   } else if (!over_x && over_y) {
     tipo = 5;
   } else if (over_x && over_x) {
-    std::cout << "Over&over" << std::endl;
+    // std::cout << "Over&over" << std::endl;
     tipo = 14;
   }
 }

@@ -64,14 +64,14 @@ void Player::moveUp() {
   dir_prec = (dir != DOWN && dir != UP ? dir : dir_prec);
 
   if (dir_prec == RIGHT) {
-    std::cout << "RIGHT\n";
+    // std::cout  << "RIGHT\n";
     offsetAnimationX = 0;
     offsetAnimationY = 7;
     a_col = 0;
     a_row = 2;
   }
   if (dir_prec == LEFT) {
-    std::cout << "LEFT\n";
+    // std::cout  << "LEFT\n";
     offsetAnimationX = 22;
     offsetAnimationY = 7;
     a_col = 12;
@@ -92,7 +92,7 @@ void Player::moveDown() {
   // dir_prec = (dir != DOWN && dir != UP ? dir : dir_prec);
   dir_prec = dir;
 
-  std::cout << "RIGHT\n";
+  // std::cout << "RIGHT\n";
   offsetAnimationX = 0;
   offsetAnimationY = 0;
   a_col = 0;

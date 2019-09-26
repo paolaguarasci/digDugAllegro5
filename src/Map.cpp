@@ -10,7 +10,7 @@ void Map::init() {
   int x;
   inFile.open("assets/map/00.map");
   if (!inFile) {
-    std::cout << "Unable to open file";
+    // std::cout  << "Unable to open file";
     // exit(1); // terminate with error
   }
   while (inFile >> x) {
@@ -24,7 +24,7 @@ void Map::init() {
   for (int n : data) {
     pos_x = 32 * k;
     pos_y = 32 * z;
-    // std::cout << n << " ";
+    // std::cout  << n << " ";
     tileset.push_back(new Tile());
     tileset.back()->init(n, pos_x, pos_y, k, z);
     k++;
@@ -69,7 +69,7 @@ int Map::nextInDir(int pos_x, int pos_y, std::string dir) {
     redDot_x = (pos_x / 32);
     redDot_y = (pos_y / 32) + 1;
   }
-  // std::cout << redDot_x << " " << redDot_y << "\n";
+  // std::cout  << redDot_x << " " << redDot_y << "\n";
   for (Tile *t : tileset) {
     if (t->getX() == redDot_x && t->getY() == redDot_y) {
       tile = t;
