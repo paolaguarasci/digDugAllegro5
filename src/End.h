@@ -8,9 +8,9 @@ private:
   ALLEGRO_FONT *font46 = NULL;
   ALLEGRO_FONT *font24 = NULL;
   int punti;
-
+  bool win;
 public:
-  End(int);
+  End(int, bool);
   void destroy();
   void draw();
   void update(){};

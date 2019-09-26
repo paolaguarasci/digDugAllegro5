@@ -12,6 +12,7 @@ private:
   STATE stato;
   STATE oldStato;
   int p;
+  bool winner;
 public:
   GestoreSchermi();
   void destroy();
@@ -21,7 +22,7 @@ public:
   void setState(STATE _stato) {
     oldStato = stato;
     stato = _stato;
-    std::cout << "\n" << oldStato << " " << stato << "\n";
+    // std::cout  << "\n" << oldStato << " " << stato << "\n";
   }
   STATE getState() { return stato; }
   void setMod(int m){
@@ -30,8 +31,9 @@ public:
     }
   }
 
-  void setPunti(int punti) {
+  void setPunti(int punti, bool win) {
     p = punti;
+    winner = win;
   }
 };
 
