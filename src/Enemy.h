@@ -12,9 +12,10 @@ private:
   int passi;
   int direzione;
   bool flip;
+  int tipo;
 
 public:
-  Enemy(int, int);
+  Enemy(int, int, int);
   void destroy();
   void draw();
   void update();

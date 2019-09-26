@@ -1,9 +1,10 @@
 #include "Enemy.h"
-Enemy::Enemy(int x, int y) {
+Enemy::Enemy(int x, int y, int t) {
   ID = rand() % 100000; 
   bitmap = al_load_bitmap("assets/img/original.png");
   pos_x = x;
   pos_y = y;
+  tipo = t;
   // pos_x = 32 * 12;
   inizial_pos_x = pos_x;
   // pos_y = SCREEN_H - (32 * 4);
@@ -19,7 +20,7 @@ Enemy::Enemy(int x, int y) {
   type = ENEMY;
   collidable = true;
   a_col = 0;
-  a_row = 6;
+  a_row = 5;
   offsetAnimationX = 0;
   offsetAnimationY = 1;
 }
@@ -32,8 +33,8 @@ void Enemy::draw() {
   //                       pos_x, pos_y, 0);
   if (alive) {
     ALLEGRO_BITMAP *tmp = al_create_sub_bitmap(
-        bitmap, (a_col * dim_x) + (curr_frame * dim_x) + offsetAnimationX,
-        (a_row * dim_y) + offsetAnimationY, dim_x, dim_y);
+        bitmap, ((a_col) * dim_x) + (curr_frame * dim_x) + offsetAnimationX,
+        ((a_row + tipo)* dim_y) + offsetAnimationY, dim_x, dim_y);
     al_convert_mask_to_alpha(tmp, al_map_rgb(32, 156, 0));
     al_draw_scaled_rotated_bitmap(tmp, 0, 0, pos_x, pos_y, scala, scala, 0,
                                   flip * 1);

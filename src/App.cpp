@@ -18,9 +18,9 @@ App::App() {
 
   modality = 0;
 
-  enemy1 = new Enemy(300, 400);
-  enemy2 = new Enemy(200, 345);
-  enemy3 = new Enemy(100, 200);
+  enemy1 = new Enemy(300, 400, -1);
+  enemy2 = new Enemy(200, 345, 1);
+  enemy3 = new Enemy(100, 200, -1);
 
   infoMsg = new Infomsg();
 
