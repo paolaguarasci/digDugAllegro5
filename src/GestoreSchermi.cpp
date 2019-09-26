@@ -26,6 +26,10 @@ void GestoreSchermi::update() {
       currentScreen = new Splash();
       std::cout << "LOAD\n";
       break;
+    case MENU:
+      currentScreen = new Menu();
+      std::cout << "MENU\n";
+      break;
     case GAME:
       currentScreen = new Screen();
       std::cout << "GAME\n";

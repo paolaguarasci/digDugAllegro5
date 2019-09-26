@@ -4,6 +4,8 @@
 #include "Object.h"
 #include "Screen.h"
 #include "Splash.h"
+#include "Menu.h"
+
 class GestoreSchermi : public Object {
 private:
   Object *currentScreen;
@@ -22,7 +24,11 @@ public:
     std::cout << "\n" << oldStato << " " << stato << "\n";
   }
   STATE getState() { return stato; }
-  
+  void setMod(int m){
+    if(stato == MENU) {
+      currentScreen->setMod(m);
+    }
+  }
 };
 
 #endif // GESTORESCHERMI_H

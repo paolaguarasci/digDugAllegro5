@@ -27,6 +27,8 @@ protected:
   bool alive;
   bool collidable;
 
+int mod;
+
   float angolo;
   float scala;
   DIREZIONE dir;
@@ -78,6 +80,15 @@ public:
   void setAngolo(float angolo) { Object::angolo = angolo; }
   bool getCollidable() { return collidable; }
   bool isCol(Object *obj);
+
+// non va bene...
+
+void setMod(int m) {
+  std::cout << "Setto mod in object" << m << std::endl;
+  mod = m;
+}
+
+// --------
 
   bool isEqual( Object lhs, Object rhs )
 {

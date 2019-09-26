@@ -16,6 +16,8 @@ App::App() {
   mappa = new Map();
   player = new Player();
 
+  modality = 0;
+
   enemy1 = new Enemy(300, 400);
   enemy2 = new Enemy(200, 345);
   enemy3 = new Enemy(100, 200);
@@ -23,7 +25,6 @@ App::App() {
   infoMsg = new Infomsg();
 
   arma = new Harpoon();
-  
   obj.push_back(mappa);
   obj.push_back(arma);
   obj.push_back(enemy1);
@@ -36,10 +37,35 @@ App::App() {
 
 int App::Run(int argc, char *argv[]) {
 
+  doexit=false;
+  timer->start();
+  screen->draw();
+
+  std::cout << "Esco dal loading ";
+  screen->setState(MENU);
+  screen->setMod(modality);
+  while(!doexit) {
+    ALLEGRO_EVENT ev;
+    al_wait_for_event(event_queue, &ev);
+    if (ev.type == ALLEGRO_EVENT_KEY_UP && ev.keyboard.keycode == ALLEGRO_KEY_UP) {
+      std::cout << "Ho premuto freccia su!\n";
+      modality = 0;
+    } else if (ev.type == ALLEGRO_EVENT_KEY_UP && ev.keyboard.keycode == ALLEGRO_KEY_DOWN) {
+      std::cout << "Ho premuto freccia giu!\n";
+      modality = 1;
+    } else if (ev.type == ALLEGRO_EVENT_KEY_UP && ev.keyboard.keycode == ALLEGRO_KEY_ENTER) {
+      std::cout << "Ho premuto invio!\n";
+      doexit = true;
+    }
+    screen->setMod(modality);
+    screen->update();
+    screen->draw();
+  }
+
+  doexit=false;
   timer->start();
   screen->draw();
   screen->setState(GAME);
-
   while (!doexit) {
     ALLEGRO_EVENT ev;
     al_wait_for_event(event_queue, &ev);
@@ -98,9 +124,9 @@ int App::Run(int argc, char *argv[]) {
       case ALLEGRO_KEY_SPACE:
         key[KEY_SPACE] = false;
         break;
-      case ALLEGRO_KEY_T:
-        modTimer = true;
-        break;
+      // case ALLEGRO_KEY_T:
+      //   modTimer = true;
+      //   break;
       case ALLEGRO_KEY_ESCAPE:
         doexit = true;
         break;
@@ -146,6 +172,7 @@ int App::Run(int argc, char *argv[]) {
       for (Object *o : obj)
         o->draw();
     }
+    if (modality == 1) { modTimer = true; }
     if(modTimer && modtimer_time > 0) {
       std::cout<< "Restano: " << modtimer_time / 60 << " secondi"<< std::endl;
       modtimer_time--;

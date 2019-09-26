@@ -22,6 +22,7 @@ private:
   
   int modtimer_time;
 
+  int modality;
   ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 
   Map *mappa = NULL;
