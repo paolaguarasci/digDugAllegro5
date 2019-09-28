@@ -4,8 +4,8 @@ Player::Player() {
   bitmap = al_load_bitmap("assets/img/original.png");
   pos_x = 467;
   pos_y = 71;
-  vel_x = 7;
-  vel_y = 7;
+  vel_x = 4;
+  vel_y = 4;
   dim_x = 15;
   dim_y = 15;
 
@@ -24,7 +24,7 @@ Player::Player() {
 
 void Player::destroy() { al_destroy_bitmap(bitmap); }
 void Player::draw() {
-  bool flip = false;
+  // bool flip = false;
   ALLEGRO_BITMAP *tmp = al_create_sub_bitmap(
       bitmap, (a_col * dim_x) + (curr_frame * dim_x) + offsetAnimationX,
       (a_row * dim_y) + offsetAnimationY, dim_x, dim_y);
@@ -86,9 +86,9 @@ void Player::moveDown() {
   // {
   // pos_y += vel_y - 2;
   // } else {
-  pos_y += vel_y;
+  pos_y += vel_y; // incremento originale (funzionante)
   // }
-
+  // pos_y += (vel_y * 32);
   // dir_prec = (dir != DOWN && dir != UP ? dir : dir_prec);
   dir_prec = dir;
 

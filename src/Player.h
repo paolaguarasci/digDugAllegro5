@@ -16,7 +16,7 @@ public:
   void draw();
 
   int getScore() { return score; }
-  void setScore(int score) { Player::score += score; }
+  void setScore(int score) { Player::score = score; }
   int getLives() { return lives; }
 
   void moveUp();

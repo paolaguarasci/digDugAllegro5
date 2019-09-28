@@ -21,7 +21,7 @@ private:
   bool modTimer = false;
   
   int modtimer_time;
-
+  int numEnemy;
   int modality;
   ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 

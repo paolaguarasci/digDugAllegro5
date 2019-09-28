@@ -26,9 +26,9 @@ bool Object::isCol(Object *obj) {
       return false;
     }
     // std::cout << "Collisione!" << std::endl;
-    obj->setAlive(false);
+    if(obj->getType()== ENEMY){obj->setAlive(false);}
     // collision
-    return true;
+    if((type == PLAYER || type == WEAPON) && obj->getType()== ENEMY) return true;
   }
   return false;
 }

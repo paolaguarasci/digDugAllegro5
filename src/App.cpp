@@ -33,6 +33,7 @@ App::App() {
   obj.push_back(player);
   obj.push_back(infoMsg);
   obj.push_back(screen);
+  numEnemy = 3;
 }
 
 int App::Run(int argc, char *argv[]) {
@@ -41,20 +42,20 @@ int App::Run(int argc, char *argv[]) {
   timer->start();
   screen->draw();
 
-  std::cout << "Esco dal loading ";
+  // std::cout  << "Esco dal loading ";
   screen->setState(MENU);
   screen->setMod(modality);
   while(!doexit) {
     ALLEGRO_EVENT ev;
     al_wait_for_event(event_queue, &ev);
     if (ev.type == ALLEGRO_EVENT_KEY_UP && ev.keyboard.keycode == ALLEGRO_KEY_UP) {
-      std::cout << "Ho premuto freccia su!\n";
+      // std::cout  << "Ho premuto freccia su!\n";
       modality = 0;
     } else if (ev.type == ALLEGRO_EVENT_KEY_UP && ev.keyboard.keycode == ALLEGRO_KEY_DOWN) {
-      std::cout << "Ho premuto freccia giu!\n";
+      // std::cout  << "Ho premuto freccia giu!\n";
       modality = 1;
     } else if (ev.type == ALLEGRO_EVENT_KEY_UP && ev.keyboard.keycode == ALLEGRO_KEY_ENTER) {
-      std::cout << "Ho premuto invio!\n";
+      // std::cout  << "Ho premuto invio!\n";
       doexit = true;
     }
     screen->setMod(modality);
@@ -140,30 +141,46 @@ int App::Run(int argc, char *argv[]) {
 
     for (std::list<Object *>::iterator it = obj.begin(); it != obj.end();
          ++it) {
-      player->isCol(*it);
+      if(player->isCol(*it)) doexit = true;     
     }
     
     // TODO: Modificare assolutamente questo schifezza!
-    if(arma->isCol(enemy1)) player->setScore(30);
-    if(arma->isCol(enemy2)) player->setScore(30);
-    if(arma->isCol(enemy3)) player->setScore(30);
+    // if(arma->isCol(enemy1)) player->setScore(30);
+    // if(arma->isCol(enemy2)) player->setScore(30);
+    // if(arma->isCol(enemy3)) player->setScore(30);
+    arma->isCol(enemy1);
+    arma->isCol(enemy2);
+    arma->isCol(enemy3);
+    enemy1->insegui(player, mappa);
+    enemy2->insegui(player, mappa);
+    enemy3->insegui(player, mappa);
     
     if (!(enemy1->getAlive())) {
       // delete enemy;
       obj.remove(enemy1);
-    }
-    enemy1->insegui(player, mappa);
-        if (!(enemy2->getAlive())) {
+      // numEnemy -= 1;
+    } 
+    if (!(enemy2->getAlive())) {
       // delete enemy;
       obj.remove(enemy2);
-    }
-    enemy2->insegui(player, mappa);
-        if (!(enemy3->getAlive())) {
+      // numEnemy -= 1;
+    } 
+    if (!(enemy3->getAlive())) {
       // delete enemy;
       obj.remove(enemy3);
+      // numEnemy -= 1;
     }
-    enemy3->insegui(player, mappa);
+    numEnemy = 0;
+    for (std::list<Object *>::iterator it = obj.begin(); it != obj.end();
+         ++it) {
+      if ((*it)->getType() == ENEMY) numEnemy++;
+    }
+    std::cout   << "Numero di nemici " << numEnemy << "\n"
+                << "Mod a tempo " << (modality == 0 ? "NO" : "SI") << "\n" 
+                << std::endl;
+            
     // Fine schifezza
+    player->setScore((3 - numEnemy) * 90);
     infoMsg->setPti(player->getScore());
     mappa->scava(player->getPosX(), player->getPosY(), player->getDir(),
                  player->getDirPrec());
@@ -174,22 +191,24 @@ int App::Run(int argc, char *argv[]) {
     }
     if (modality == 1) { modTimer = true; }
     if(modTimer && modtimer_time > 0) {
-      std::cout<< "Restano: " << modtimer_time / 60 << " secondi"<< std::endl;
+      // std::cout << "Restano: " << modtimer_time / 60 << " secondi"<< std::endl;
       modtimer_time--;
       infoMsg->setTime(modtimer_time/FPS);
     }
     if(modtimer_time == 0 && modTimer) doexit = true;
+
+    if (numEnemy == 0) doexit = true;
   }
   doexit = false;
-  std::cout << "Esco dal loop";
-  std::cout << "Punti alla fine.. " << player->getScore() << std::endl;
+  // std::cout  << "Esco dal loop";
+  // std::cout  << "Punti alla fine.. " << player->getScore() << std::endl;
   screen->setState(DEAD);
   while(!doexit) {
-  screen->setPunti(player->getScore());
+  screen->setPunti(player->getScore(), numEnemy == 0);
     ALLEGRO_EVENT ev;
     al_wait_for_event(event_queue, &ev);
     if (ev.type == ALLEGRO_EVENT_KEY_UP && ev.keyboard.keycode == ALLEGRO_KEY_ESCAPE) {
-      std::cout << "Ho premuto ESC!\n";
+      // std::cout  << "Ho premuto ESC!\n";
       doexit = true;
     }
     screen->update();
@@ -202,7 +221,7 @@ int App::Run(int argc, char *argv[]) {
 App::~App() {
   for (std::list<Object *>::iterator it = obj.begin(); it != obj.end();) {
     (*it)->destroy();
-    delete (*it);
+    // delete (*it);
     it = obj.erase(it);
   }
   al_destroy_event_queue(event_queue);

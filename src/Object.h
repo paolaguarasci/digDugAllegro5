@@ -75,17 +75,21 @@ public:
   void setDirPrec(DIREZIONE dir_prec) { Object::dir_prec = dir_prec; }
 
   bool getAlive() { return alive; }
-  void setAlive(bool alive) { Object::alive = alive; };
+  void setAlive(bool alive) { 
+    // std::cout  << "setto morto "<< std::endl;
+
+    Object::alive = alive; };
 
   float getAngolo() { return angolo; }
   void setAngolo(float angolo) { Object::angolo = angolo; }
+  TYPE getType() { return type;}
   bool getCollidable() { return collidable; }
   bool isCol(Object *obj);
 
 // non va bene...
 
 void setMod(int m) {
-  std::cout << "Setto mod in object" << m << std::endl;
+  // std::cout  << "Setto mod in object" << m << std::endl;
   mod = m;
 }
 
