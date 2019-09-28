@@ -10,6 +10,7 @@ Harpoon::Harpoon() {
   pos_y = 0;
   inizial_pos_x = 0;
   inizial_pos_y = 0;
+  type = WEAPON;
 }
 void Harpoon::destroy() { al_destroy_bitmap(bitmap); }
 void Harpoon::start(int _pos_x, int _pos_y, DIREZIONE _dir) {
