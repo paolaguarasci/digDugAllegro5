@@ -1,5 +1,5 @@
 CC := g++
-CFLAGS := -Wall -std=c++14
+CFLAGS := -Wall -std=c++14 -g
 LIBS := `pkg-config --libs allegro-5 allegro_acodec-5 allegro_audio-5 allegro_color-5 allegro_dialog-5 allegro_font-5 allegro_image-5 allegro_main-5 allegro_memfile-5 allegro_physfs-5 allegro_primitives-5 allegro_ttf-5`
 SOURCES := $(shell find ./src -type f -name "*.cpp")
 OBJECTS := $(SOURCES:.cpp=.o)
