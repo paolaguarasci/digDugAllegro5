@@ -8,6 +8,7 @@ End::End(int p, bool w) {
   // p = 999;
   punti = p;
   win = w;
+  al_set_window_title(display, "Dig Dug - Classic NES Game");
   // std::cout  << "    Punti alla costruzione " << punti <<std::endl;
 }
 void End::destroy() {
