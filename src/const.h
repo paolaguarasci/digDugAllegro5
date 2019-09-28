@@ -9,7 +9,7 @@ const bool redraw = true;
 const bool reload = false;
 
 enum KEY { KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_SPACE };
-enum TYPE { PLAYER, ENEMY, TILE, OTHER };
+enum TYPE { PLAYER, ENEMY, TILE, WEAPON , OTHER };
 // enum DIREZIONE { UP = -1, DOWN = 1, RIGHT = 1, LEFT = -1 };
 enum DIREZIONE { UP, DOWN, RIGHT, LEFT };
 const std::string MAP_FOLDER = "assets/data/maps";
