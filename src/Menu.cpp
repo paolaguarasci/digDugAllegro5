@@ -4,6 +4,7 @@ Menu::Menu() {
   font46 = al_load_ttf_font("assets/font/nintendo.ttf", 46, 0);
 
   display = al_create_display(SCREEN_H, SCREEN_W);
+  al_set_window_title(display, "Dig Dug - Classic NES Game");
   // std::cout  << "Costruisco Menu";
   Object::mod = 0;
 }
