@@ -23,6 +23,8 @@ Enemy::Enemy(int x, int y, int t) {
   a_row = 5;
   offsetAnimationX = 0;
   offsetAnimationY = 1;
+  curr_frame = 0;
+  flip = 0;
 }
 void Enemy::destroy() { al_destroy_bitmap(bitmap); }
 
