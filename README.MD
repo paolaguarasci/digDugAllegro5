@@ -26,3 +26,9 @@ al_set_display_flag(display, ALLEGRO_FULLSCREEN_WINDOW, !(al_get_display_flags(d
 ```
 
 ---
+
+```bash
+valgrind --leak-check=full --track-origins=yes --log-file="v.log" ./game
+```
+
+--- 
