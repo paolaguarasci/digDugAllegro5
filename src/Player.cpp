@@ -42,8 +42,8 @@ void Player::update() {
     pos_x = 0;
   if (pos_y >= SCREEN_H)
     pos_y = SCREEN_H - dim_y -10;
-  if (pos_y <= 0)
-    pos_y = 0;
+  if (pos_y <= 32*2)
+    pos_y = 32*2+2;
 
   // TODO:
   // Devo fare in modo che si muova a blocchi perchè l'algoritmo di prima,
