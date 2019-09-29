@@ -87,53 +87,49 @@ int Map::nextInDir(int pos_x, int pos_y, std::string dir) {
 */
 
 void Map::scava(int pos_x, int pos_y, DIREZIONE dir, DIREZIONE dir_prec) {
-  Tile *tile = NULL;
-  Tile *tilePrec = NULL;
-  for (Tile *t : tileset) {
-    float areaX_a = t->getPosX();
-    float areaX_b = t->getPosX() + 32;
-    float areaY_a = t->getPosY();
-    float areaY_b = t->getPosY() + 32;
+  Tile *tile = getTile((pos_x / 32), (pos_y / 32));
+  Tile *tilePrec = tile;
+  int tx = tile->getX();
+  int ty = tile->getY();
 
-    if (pos_y > areaY_a && pos_y < areaY_b && pos_x > areaX_a &&
-        pos_x < areaX_b) {
-      tile = t;
-      if (dir_prec == dir) {
-        switch (dir_prec) {
-        case RIGHT:
-          tilePrec = getTile(tile->getX() - 1, tile->getY());
-          break;
-        case LEFT:
-          tilePrec = getTile(tile->getX() + 1, tile->getY());
-          break;
-        case UP:
-          tilePrec = getTile(tile->getX(), tile->getY() + 1);
-          break;
-        case DOWN:
-          tilePrec = getTile(tile->getX(), tile->getY() - 1);
-          break;
-        }
-      } else {
-        if (dir_prec == LEFT && dir == UP)
-          tilePrec = getTile(tile->getX(), tile->getY() + 1);
-        if (dir_prec == LEFT && dir == DOWN)
-          tilePrec = getTile(tile->getX(), tile->getY() - 1);
-        if (dir_prec == RIGHT && dir == UP)
-          tilePrec = getTile(tile->getX(), tile->getY() + 1);
-        if (dir_prec == RIGHT && dir == DOWN)
-          tilePrec = getTile(tile->getX(), tile->getY() - 1);
-
-        if (dir_prec == UP && dir == LEFT)
-          tilePrec = getTile(tile->getX() + 1, tile->getY());
-        if (dir_prec == UP && dir == RIGHT)
-          tilePrec = getTile(tile->getX() - 1, tile->getY());
-        if (dir_prec == DOWN && dir == LEFT)
-          tilePrec = getTile(tile->getX() + 1, tile->getY());
-        if (dir_prec == DOWN && dir == RIGHT)
-          tilePrec = getTile(tile->getX() - 1, tile->getY());
-      }
+  if (dir_prec == dir) {
+    switch (dir_prec) {
+    case RIGHT:
+      tilePrec = getTileByXY((tx - 1 < 0 ? 0 : tx -1), ty);
+      break;
+    case LEFT:
+      tilePrec = getTileByXY((tx + 1 > 15? 15 : tx + 1), ty);
+      break;
+    case UP:
+      tilePrec = getTileByXY(tx, (ty + 1 > 15 ? 15:ty + 1));
+      break;
+    case DOWN:
+      tilePrec = getTileByXY(tx, (ty - 1 < 0 ? 0:ty - 1));
+      break;
     }
+  } else {
+    if (dir_prec == LEFT && dir == UP)
+      tilePrec = getTileByXY(tx, (ty + 1 > 15 ? 15:ty + 1));
+    if (dir_prec == LEFT && dir == DOWN)
+      tilePrec = getTileByXY(tx,  (ty - 1 < 0 ? 0:ty - 1));
+    if (dir_prec == RIGHT && dir == UP)
+      tilePrec = getTileByXY(tx, (ty + 1 > 15 ? 15:ty + 1));
+    if (dir_prec == RIGHT && dir == DOWN)
+      tilePrec = getTileByXY(tx,  (ty - 1 < 0 ? 0:ty - 1));
+
+    if (dir_prec == UP && dir == LEFT)
+      tilePrec = getTileByXY((tx + 1 > 15? 15 : tx + 1), ty);
+    if (dir_prec == UP && dir == RIGHT)
+      tilePrec = getTileByXY((tx - 1 < 0 ? 0 : tx -1), ty);
+    if (dir_prec == DOWN && dir == LEFT)
+      tilePrec = getTileByXY((tx + 1 > 15? 15 : tx + 1), ty);
+    if (dir_prec == DOWN && dir == RIGHT)
+      tilePrec = getTileByXY((tx - 1 < 0 ? 0 : tx -1), ty);
   }
+  
+  // std::cout << tilePrec->getX() << " " << tilePrec->getY() << std::endl;
+  std::cout << tx << " " << ty << std::endl;
+
   if (tile != NULL && tile->getTipo() != -1 && tilePrec != NULL) {
     if (dir == dir_prec) {
       switch (dir_prec) {
@@ -180,9 +176,16 @@ void Map::update() {
   }
 }
 
+Tile* Map::getTileByXY(int x, int y) {
+  return tileset[y * 16 + x];
+}
+
+// x e y sono le coordinate sulla griglia NON la posizione in pixel
 Tile *Map::getTile(int x, int y) {
+  // std::cout << "Cerco la tile (" << x << ", " << y << ")" <<std::endl;
   auto tile = find_if(tileset.begin(), tileset.end(), [x, y](Tile *a) {
     return a->getX() == x && a->getY() == y;
   });
+  if (tile == tileset.end()) return NULL;
   return (*tile);
 }

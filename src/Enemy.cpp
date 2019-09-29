@@ -158,7 +158,7 @@ void Enemy::insegui(Player *player, Map *mappa) {
       
     }
   }
-  std::cout << "Tile 'libera' " << minIndex << std::endl;
+  // std::cout << "Tile 'libera' " << minIndex << std::endl;
   switch (minIndex) {
   case 0:
     direzione = RIGHT;
