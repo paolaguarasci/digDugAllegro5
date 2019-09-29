@@ -1,9 +1,11 @@
 #include "Infomsg.h"
 
 Infomsg::Infomsg() {
+  type = OTHER;
   time = -1;
   pti = 100;
   font18 = al_load_ttf_font("assets/font/nintendo.ttf", 18, 0);
+  collidable = false;
 }
 
 void Infomsg::destroy() {

@@ -7,6 +7,8 @@ GestoreSchermi::GestoreSchermi() {
   currentScreen = new Splash();
   p = -1;
   winner = false;
+  type = OTHER;
+  collidable = false;
 }
 
 void GestoreSchermi::destroy() {

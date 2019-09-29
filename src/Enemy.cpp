@@ -25,6 +25,7 @@ Enemy::Enemy(int x, int y, int t) {
   offsetAnimationY = 1;
   curr_frame = 0;
   flip = 0;
+  direzione = LEFT;
 }
 void Enemy::destroy() { al_destroy_bitmap(bitmap); }
 

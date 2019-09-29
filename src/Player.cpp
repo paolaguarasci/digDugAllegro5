@@ -8,7 +8,8 @@ Player::Player() {
   vel_y = 4;
   dim_x = 15;
   dim_y = 15;
-
+  dir = LEFT;
+  dir_prec = LEFT;
   curr_frame = 0;
   score = 0;
   lives = 3;
@@ -20,6 +21,7 @@ Player::Player() {
   offsetAnimationY = 0;
   a_col = 12;
   a_row = 0;
+  collidable = true;
 }
 
 void Player::destroy() { al_destroy_bitmap(bitmap); }

@@ -2,8 +2,10 @@
 #include "Object.h"
 
 Map::Map() {
+  type = OTHER;
   bitmap = al_load_bitmap("assets/img/terrain.png");
   init();
+  collidable = false;
 }
 void Map::init() {
   std::ifstream inFile;

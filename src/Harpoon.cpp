@@ -11,6 +11,8 @@ Harpoon::Harpoon() {
   inizial_pos_x = 0;
   inizial_pos_y = 0;
   type = WEAPON;
+  dir = LEFT;
+  collidable = true;
 }
 void Harpoon::destroy() { al_destroy_bitmap(bitmap); }
 void Harpoon::start(int _pos_x, int _pos_y, DIREZIONE _dir) {
@@ -77,5 +79,6 @@ void Harpoon::draw() {
     al_draw_scaled_rotated_bitmap(tmp, 0, 0, pos_x, pos_y, 1.25, 1.25, angolo,
                                   0);
     update();
+    al_destroy_bitmap(tmp);
   }
 }
