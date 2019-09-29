@@ -6,12 +6,13 @@
 
 #include <fstream>
 #include <list>
+#include <vector>
 
 class Map : public Object {
 private:
-  std::list<Tile *> tileset;
+  std::vector<Tile *> tileset;
   std::string file;
-  std::list<int> data;
+  std::vector<int> data;
 
 public:
   Map();
