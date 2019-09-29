@@ -156,17 +156,14 @@ int App::Run(int argc, char *argv[]) {
     enemy3->insegui(player, mappa);
     
     if (!(enemy1->getAlive())) {
-      // delete enemy;
       obj.remove(enemy1);
       // numEnemy -= 1;
     } 
     if (!(enemy2->getAlive())) {
-      // delete enemy;
       obj.remove(enemy2);
       // numEnemy -= 1;
     } 
     if (!(enemy3->getAlive())) {
-      // delete enemy;
       obj.remove(enemy3);
       // numEnemy -= 1;
     }
@@ -221,9 +218,10 @@ int App::Run(int argc, char *argv[]) {
 App::~App() {
   for (std::list<Object *>::iterator it = obj.begin(); it != obj.end();) {
     (*it)->destroy();
-    // delete (*it);
+    delete (*it);
     it = obj.erase(it);
   }
+  timer->destroy();
   al_destroy_event_queue(event_queue);
   al_uninstall_keyboard();
 }
