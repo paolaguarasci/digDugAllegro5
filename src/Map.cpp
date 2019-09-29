@@ -48,8 +48,10 @@ void Map::draw() {
   al_draw_scaled_rotated_bitmap(tmp, 0, 0, 0, 32 * 3, 6, 2.5, 0, 0);
   for (Tile *t : tileset)
     t->draw();
+  al_destroy_bitmap(tmp);
 }
-
+// Rimuovere, inutilizzato
+/*
 int Map::nextInDir(int pos_x, int pos_y, std::string dir) {
   Tile *tile = NULL;
   int redDot_x = -1;
@@ -82,6 +84,7 @@ int Map::nextInDir(int pos_x, int pos_y, std::string dir) {
   else
     return -1;
 }
+*/
 
 void Map::scava(int pos_x, int pos_y, DIREZIONE dir, DIREZIONE dir_prec) {
   Tile *tile = NULL;
